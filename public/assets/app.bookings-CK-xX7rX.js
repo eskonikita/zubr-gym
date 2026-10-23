@@ -1,0 +1,1 @@
+import{cE as o}from"./index-DeYhi4WE.js";import{A as r}from"./AppPageLayout-C53nDx--.js";import{M as t}from"./MemberBookingsPanel-BtqKad38.js";import"./member-nav-C_deHzn7.js";function p(){return o.jsx(r,{title:"Расписание",children:o.jsx(t,{})})}export{p as component};

@@ -1,0 +1,1 @@
+import{bu as t,cE as r}from"./index-DeYhi4WE.js";import{C as m}from"./ConfirmEmailPage-BLexwCDi.js";import"./AuthLayout-Df8QCKe1.js";import"./AuthFormPrimitives-BVVMM0Jp.js";import"./mail-BYTBxtTl.js";import"./triangle-alert-Dfr2C2Pl.js";import"./arrow-left-B_vvTe7X.js";function c(){const{token:o}=t.useSearch();return r.jsx(m,{portal:"admin",token:o})}export{c as component};

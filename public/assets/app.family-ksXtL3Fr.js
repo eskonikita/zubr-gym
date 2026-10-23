@@ -1,0 +1,1 @@
+import{cE as o}from"./index-DeYhi4WE.js";import{A as r}from"./AppPageLayout-C53nDx--.js";import{M as t}from"./MemberFamilyPanel-CVkCAwNr.js";import"./member-nav-C_deHzn7.js";import"./AuthFormPrimitives-BVVMM0Jp.js";import"./use-member-family-D_YPrDjo.js";import"./useMutation-Bt8VKjsr.js";function x(){return o.jsx(r,{title:"Семья",children:o.jsx(t,{})})}export{x as component};

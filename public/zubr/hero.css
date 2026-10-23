@@ -1,0 +1,153 @@
+@font-face {font-family:"Russo One";src:url("./fonts/RussoOne-Regular.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+/* ZUBR — Сила и порядок. The illustration carries the expressive detail. */
+.brand{display:block;width:184px;flex-shrink:0}.brand img{width:100%;height:auto;object-fit:contain}.site-header .brand img{height:29px;object-fit:cover}.footer-brand img,.mobile-menu-top>img{object-fit:cover}
+.hero-shell{position:relative;isolation:isolate;overflow:hidden;color:var(--zubr-ink);background:radial-gradient(ellipse at 90% 45%,#d3d5d8 0,#e9eaec 40%,#f3f4f5 72%)}
+.hero-shell .container{width:min(calc(100% - 96px),1240px)}
+.site-header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:32px;height:104px}
+.desktop-nav{display:flex;align-items:center;gap:clamp(20px,2.4vw,36px);margin-left:auto}.desktop-nav a{padding-block:14px;font-size:13px;font-weight:600;line-height:1.2;white-space:nowrap}
+.header-actions{display:flex;align-items:center;gap:14px}.icon-link{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:4px;background:transparent;cursor:pointer}.icon-link svg{width:25px;height:25px;stroke-width:1.8}.menu-toggle{display:none}
+.hero{position:relative;display:flex;align-items:center;min-height:592px;padding-block:48px 80px}
+.hero-art{position:absolute;z-index:-1;width:57%;height:100%;top:0;right:-6%;pointer-events:none}.hero-art img{width:100%;height:100%;object-fit:contain}
+.hero-copy{position:relative;width:57%}
+.hero h1{font-family:var(--zubr-font-display);font-size:var(--zubr-text-hero);font-weight:400;line-height:var(--zubr-leading-hero);letter-spacing:var(--zubr-tracking-display);margin:0 0 26px}.hero h1 span{display:block;white-space:nowrap}
+.hero-lead{max-width:550px;color:var(--zubr-ink-soft);font-size:19px;line-height:1.55;font-weight:400}
+.hero-buttons{display:flex;align-items:center;gap:16px;margin-top:32px}.hero-buttons .button{min-height:56px;padding:16px 24px;font-size:15px;font-weight:600;border-radius:var(--zubr-radius-button);gap:20px;white-space:nowrap}.hero-buttons .button-primary{background:var(--zubr-accent)}.hero-buttons .button-primary:hover{background:var(--zubr-accent-hover)}
+.hero-buttons .hero-address{border:1px solid #74777b;background:transparent;color:var(--zubr-ink);font-weight:500}.hero-buttons .hero-address:hover{background:rgb(0 0 0 / 5%);border-color:var(--zubr-ink)}
+@media(min-width:1600px){.hero{min-height:650px}.hero-art{right:-7%;width:59%}}
+@media(max-width:1099px){.desktop-nav{display:none}.menu-toggle{display:inline-flex}.header-actions{margin-left:auto}.hero-shell .container{width:calc(100% - 64px)}.site-header{height:88px}.hero{min-height:530px;padding-block:36px 64px}.hero h1{font-size:clamp(42px,5.4vw,60px)}.hero-lead{font-size:17px;max-width:345px}.hero-art{width:55%;right:-7%}.hero-copy{width:60%}.hero-buttons{align-items:flex-start;flex-direction:column;gap:12px;margin-top:28px}}
+@media(max-width:699px){.hero-shell{background:radial-gradient(ellipse at 85% 28%,#d8dade 0,#eceef0 38%,#f3f4f5 72%)}.hero-shell .container{width:calc(100% - 40px)}.site-header{height:72px;gap:16px}.site-header .brand{width:150px}.site-header .brand img{height:24px}.header-actions{gap:4px}.hero{display:flex;flex-direction:column;align-items:stretch;min-height:0;padding:0 0 40px}.hero-art{position:relative;inset:auto;width:calc(100% + 24px);height:clamp(236px,68vw,310px);margin:-4px -12px 16px}.hero-copy{width:100%}.hero h1{font-size:clamp(30px,9.65vw,52px);line-height:1.04;letter-spacing:-.025em;margin-bottom:18px}.hero-lead{max-width:400px;font-size:16px;line-height:1.5}.hero-buttons{margin-top:24px;align-items:stretch;gap:12px}.hero-buttons .button{width:100%;min-height:54px;font-size:15px}.hero-buttons .hero-address{justify-content:center}}
+@media(max-width:359px){.hero-shell .container{width:calc(100% - 32px)}.site-header .brand{width:130px}.site-header .brand img{height:21px}.hero h1{font-size:9.6vw}.hero-buttons .button{padding-inline:16px}}
+
+/* Review direction: stronger sports typography and clean contrast. */
+.hero-shell{background:var(--zubr-bg)}
+.site-header{height:104px;border-bottom:1px solid #16161626;gap:24px}
+.site-header .brand{width:202px}.site-header .brand img{height:auto}
+.desktop-nav{gap:22px}
+.desktop-nav a{position:relative;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.015em;padding-block:20px}
+.desktop-nav a:after{content:"";position:absolute;bottom:9px;left:0;width:100%;height:3px;background:var(--zubr-accent);transform:scaleX(0);transform-origin:left;transition:transform 180ms ease-out}
+.desktop-nav a:hover:after,.desktop-nav a:focus-visible:after{transform:scaleX(1)}
+.header-actions .icon-link{border:1px solid #161616;border-radius:2px;width:44px;height:44px}
+.header-actions .icon-link:hover{background:#111214;color:#fff}
+.hero{min-height:640px;padding-block:52px 72px}
+.hero-copy{width:60%}
+.hero h1{font-size:clamp(48px,5.75vw,80px);line-height:1.02;letter-spacing:-.035em;margin-bottom:28px}
+.hero h1 span+span{color:#de0014}
+.hero-lead{color:#292a2d;max-width:540px;font-size:20px;line-height:1.5}
+.hero-buttons{gap:12px;margin-top:36px}
+.hero-buttons .button{min-height:62px;font-size:16px;border-radius:6px;padding:18px 24px;font-weight:700}
+.hero-buttons .hero-address{border-color:#111214;border-width:1px;background:#111214;color:#fff}
+.hero-buttons .hero-address:hover{background:#292a2d;border-color:#292a2d;color:#fff}
+.hero-art{width:58%;right:-6%;top:0;height:100%;padding-block:24px}
+@media(min-width:1600px){.hero{min-height:680px}.hero-art{width:59%;right:-7%}}
+@media(max-width:1199px) and (min-width:1100px){.desktop-nav{gap:16px}.desktop-nav a{font-size:12px}.site-header .brand{width:180px}}
+@media(max-width:1099px){.site-header{height:88px}.hero{min-height:550px;padding-block:40px 60px}.hero h1{font-size:clamp(42px,5.6vw,60px)}.hero-lead{font-size:18px;max-width:345px}.hero-copy{width:60%}.hero-art{width:55%;right:-7%}.hero-buttons{margin-top:28px}}
+@media(max-width:699px){.site-header{height:76px}.site-header .brand{width:150px}.site-header .brand img{height:auto}.header-actions .icon-link{width:40px;height:40px}.header-actions{gap:8px}.hero{min-height:0;padding:0 0 36px}.hero-art{width:calc(100% + 24px);height:clamp(236px,68vw,310px);inset:auto;margin:4px -12px 16px}.hero-copy{width:100%}.hero h1{font-size:clamp(30px,9.65vw,52px);line-height:1.04;letter-spacing:-.025em;margin-bottom:20px}.hero-lead{font-size:16px;max-width:400px;line-height:1.5}.hero-buttons{margin-top:24px}.hero-buttons .button{font-size:15px;padding:16px;min-height:56px}}
+@media(max-width:359px){.site-header .brand{width:130px}.header-actions{gap:4px}.hero h1{font-size:9.6vw}}
+
+/* Consistent hero action icons. */
+@media(max-width:699px){.hero-art{padding-block:0;margin-block:20px 32px}}
+.hero-buttons .button{gap:12px}
+.hero-buttons .hero-button-icon{display:block;width:20px;height:20px;flex:0 0 20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:359px){.hero-buttons .button{gap:8px;padding-inline:12px;font-size:14px;white-space:normal}.hero-buttons .button span{min-width:0}}
+
+/* Club header: calm navigation, direct call and branded social link. */
+html{scroll-padding-top:113px}
+.header-shell{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e8e8e8}
+@media(max-width:699px){html{scroll-padding-top:101px}}
+.site-header{height:88px;border:0;gap:28px}
+.site-header .brand{width:184px}
+.desktop-nav{margin-inline:auto;gap:24px}
+.desktop-nav a{font-size:15px;font-weight:600;text-transform:none;letter-spacing:0;padding-block:15px}
+.desktop-nav a:after{height:2px;bottom:5px;transform:none;transition:none;background:transparent}
+.desktop-nav a:hover:after,.desktop-nav a:focus-visible:after{transform:none}
+.desktop-nav a[aria-current="location"]:after{background:var(--zubr-accent)}
+.desktop-nav a[aria-current="location"]{color:var(--zubr-accent)}
+.header-actions{gap:20px;flex-shrink:0;margin-left:0}
+.header-phone{display:inline-flex;align-items:center;justify-content:center;min-height:44px;white-space:nowrap;font-size:17px;font-weight:700;letter-spacing:-.025em}
+.header-phone svg{display:none}
+.header-instagram{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:42px;padding:10px 14px;border-radius:3px;background:#111214;color:#fff;font-size:11px;line-height:1;font-weight:700;letter-spacing:.045em}
+.header-instagram>svg{width:20px;height:20px}
+.header-instagram .header-instagram__arrow{width:16px;height:16px;color:var(--zubr-accent)}
+.header-instagram:hover{background:#292a2d;color:#fff}
+.header-actions .menu-toggle{border:1px solid #e8e8e8;border-radius:3px}
+@media(min-width:1100px) and (max-width:1279px){.site-header{gap:20px}.site-header .brand{width:160px}.desktop-nav{gap:18px}.desktop-nav a{font-size:14px}.header-actions{gap:14px}.header-phone{font-size:15px}.header-instagram{padding-inline:12px;gap:8px}.header-instagram__arrow{display:none}}
+@media(max-width:1099px){.header-actions{margin-left:auto}.site-header{height:88px}}
+@media(max-width:699px){.site-header{height:76px;gap:12px}.site-header .brand{width:150px}.header-actions{gap:6px}.header-phone{width:40px;height:40px;min-height:40px}.header-phone svg{display:block;width:21px;height:21px}.header-phone span,.header-instagram span,.header-instagram .header-instagram__arrow{display:none}.header-instagram{width:40px;height:40px;min-height:40px;padding:0}.header-actions .menu-toggle{width:40px;height:40px}}
+@media(max-width:359px){.site-header .brand{width:130px}.site-header{gap:10px}.header-actions{gap:4px}}
+
+
+/* The space after the hero is supplied by the main section layout. */
+.hero-shell .hero{padding-bottom:0}
+/* Four navigation groups and matching header controls. */
+.desktop-nav{gap:4px}
+.desktop-section{position:relative}
+.desktop-section .desktop-section-link{display:flex;align-items:center;gap:7px;min-height:44px;padding:12px 10px;border-radius:8px;list-style:none;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.desktop-section .desktop-section-link::-webkit-details-marker{display:none}
+.nav-chevron{width:14px;height:14px;stroke-width:2;transition:transform 200ms}
+.desktop-section[data-open="true"] summary{color:var(--zubr-accent);background:#f4f4f5}
+.desktop-section[data-open="true"] .nav-chevron{transform:rotate(180deg)}
+.desktop-submenu{position:absolute;top:calc(100% + 12px);left:0;min-width:240px;padding:8px;border:1px solid #e7e8eb;border-radius:12px;background:#fff;box-shadow:0 16px 40px #00000012;z-index:12}
+.desktop-nav .desktop-submenu a{display:block;padding:12px;border-radius:7px;font-size:14px;font-weight:500;line-height:1.4}
+.desktop-nav .desktop-submenu a:after{content:none}
+.desktop-submenu a:hover{background:#f2f3f5}
+@media(max-width:1279px) and (min-width:1100px){.site-header{gap:12px}.desktop-section .desktop-section-link{padding-inline:7px;font-size:13px}.header-actions{gap:12px}.header-phone{font-size:15px}.header-instagram{padding-inline:10px}}
+@media(max-width:1099px){.header-actions .menu-toggle{width:44px;height:44px;border:0;border-radius:11px;background:#111214;color:#fff}.header-actions .menu-toggle svg{width:22px;height:22px;stroke-width:1.7}.header-actions .menu-toggle:hover{background:#292a2d}}
+@media(max-width:699px){.site-header{gap:10px}.header-actions{gap:6px}.header-actions .header-phone,.header-actions .header-instagram{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;min-height:44px;padding:0;border:0;border-radius:11px;background:#f2f3f5;color:#111214}.header-actions .header-phone svg,.header-actions .header-instagram>svg{display:block;width:21px;height:21px;stroke-width:1.7}.header-actions .header-instagram .header-instagram__arrow{display:none}.header-actions .header-phone:hover,.header-actions .header-instagram:hover{background:#e8e9ec}.header-actions .menu-toggle{width:44px;height:44px}}
+@media(max-width:359px){.site-header .brand{width:120px}.header-actions{gap:4px}}
+
+.desktop-nav .desktop-section-link:after{content:none}
+.desktop-submenu:before{content:"";position:absolute;inset:-14px 0 auto;height:14px}
+/* Desktop dropdowns extend directly from the white header edge. */
+@media(min-width:1100px){
+  .desktop-nav{align-self:stretch;align-items:stretch}
+  .desktop-section{display:flex;align-items:center}
+  .desktop-section[data-open="true"] .desktop-section-link{color:var(--zubr-accent);background:transparent}
+  .desktop-submenu{top:calc(100% - 1px);min-width:280px;padding:10px 12px 16px;border:0;border-radius:0 0 12px 12px;background:#fff;box-shadow:0 18px 26px -18px #0003;transform-origin:top;overflow:hidden}
+  .desktop-submenu:before{content:none}
+  .desktop-nav .desktop-submenu a{min-height:44px;padding:13px 14px}
+}
+
+/* A full desktop opening with a shared baseline of club facts. */
+.hero-facts{display:none}
+@media(min-width:1100px){
+  .hero-shell .hero{min-height:740px;height:calc(100svh - 89px);max-height:1000px;padding-block:48px 184px}
+  .hero-copy{width:60%}
+  .hero h1{font-size:clamp(60px,5.75vw,80px)}
+  .hero-art{top:12px;right:-4%;width:58%;height:calc(100% - 156px);padding:0}
+  .hero-facts{position:absolute;inset:auto 0 40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+  .hero-fact{border-top:1px solid #c9cbd0;padding-top:20px}
+  .hero-fact strong{display:block;font-size:38px;line-height:1.15;font-weight:800;letter-spacing:-.035em}
+  .hero-fact strong span{font-size:18px;font-weight:600;letter-spacing:0;color:var(--zubr-accent)}
+  .hero-fact p{margin:10px 0 0;font-size:14px;line-height:1.5;color:var(--zubr-ink-soft)}
+}
+@media(min-width:1100px) and (max-height:800px){
+  .hero-shell .hero{min-height:640px;padding-block:32px 156px}
+  .hero-facts{bottom:28px}
+  .hero-fact{padding-top:16px}
+  .hero-fact strong{font-size:32px}
+  .hero-art{height:calc(100% - 132px)}
+}
+
+/* Desktop atmosphere follows the diagonal brushwork of the hero artwork. */
+@media(min-width:1100px){
+  .hero-shell{background:
+    radial-gradient(ellipse at 102% 34%,rgb(222 0 20 / 13%) 0,transparent 47%),
+    radial-gradient(ellipse at -12% 72%,rgb(34 37 43 / 10%) 0,transparent 44%),
+    var(--zubr-bg)}
+  .hero-shell:before,.hero-shell:after{content:"";position:absolute;z-index:-1;pointer-events:none;transform:skewX(-22deg)}
+  .hero-shell:before{left:-180px;top:-12%;width:360px;height:130%;background:linear-gradient(90deg,transparent 12%,rgb(17 18 20 / 4%) 12% 48%,transparent 48% 58%,rgb(17 18 20 / 2.5%) 58% 82%,transparent 82%);mask-image:linear-gradient(180deg,transparent,#000 32%,#000 65%,transparent)}
+  .hero-shell:after{right:-160px;top:-15%;width:280px;height:130%;background:linear-gradient(90deg,transparent 10%,rgb(222 0 20 / 4%) 10% 52%,transparent 52% 64%,rgb(222 0 20 / 7%) 64% 82%,transparent 82%);mask-image:linear-gradient(180deg,transparent,#000 22%,#000 60%,transparent)}
+}
+
+/* Fade the desktop artwork into the shared section canvas. */
+@media(min-width:1100px){
+  .hero-shell{background:
+    linear-gradient(to bottom,transparent 58%,var(--zubr-bg) 100%),
+    radial-gradient(ellipse at 102% 34%,rgb(222 0 20 / 13%) 0,transparent 47%),
+    radial-gradient(ellipse at -12% 72%,rgb(34 37 43 / 10%) 0,transparent 44%),
+    var(--zubr-bg)}
+  .hero-shell:before,.hero-shell:after{mask-image:linear-gradient(180deg,transparent 0%,#000 22%,#000 54%,transparent 86%)}
+}
+
+.hero h1 .hero-location{color:var(--zubr-ink)}
+@media(min-width:1100px){.hero h1{font-size:clamp(54px,5.2vw,72px)}}

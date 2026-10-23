@@ -1,0 +1,80 @@
+/* ZUBR GYM — Сила и порядок, 2026-10-18. Shared visual contract. */
+:root {
+  --zubr-bg: #edeef0;
+  --zubr-surface: #fff;
+  --zubr-surface-alt: #e9ebed;
+  --zubr-ink: #111214;
+  --zubr-ink-soft: #55585e;
+  --zubr-accent: #de0014;
+  --zubr-accent-hover: #be0011;
+  --zubr-accent-active: #a6000f;
+  --zubr-border: #cfd1d5;
+  --zubr-control-border: #777b82;
+  --zubr-dark: #151618;
+  --zubr-on-dark: #fff;
+  --zubr-on-dark-soft: #b9bdc3;
+  --zubr-error: #b00012;
+  --zubr-disabled-bg: #e4e5e7;
+  --zubr-disabled-ink: #686c73;
+  --zubr-focus: #de0014;
+  --zubr-focus-on-accent: #111214;
+  --zubr-focus-on-dark: #fff;
+
+  --zubr-font-body: "Golos Text", Arial, sans-serif;
+  --zubr-font-display: "Russo One", "Golos Text", Arial, sans-serif;
+  --zubr-weight-body: 400;
+  --zubr-weight-ui: 600;
+  --zubr-weight-heading: 400;
+  --zubr-text-hero: clamp(3rem, 5.35vw, 4.875rem);
+  --zubr-text-h1: clamp(1.875rem, 1.25rem + 2.5vw, 3.5rem);
+  --zubr-text-h2: clamp(1.5625rem, 1.25rem + 1.25vw, 2.5rem);
+  --zubr-text-h3: clamp(1.375rem, 1.25rem + .5vw, 1.75rem);
+  --zubr-text-h4: clamp(1.25rem, 1.2rem + .2vw, 1.375rem);
+  --zubr-text-h5: 1.125rem;
+  --zubr-text-h6: 1rem;
+  --zubr-text-lead: clamp(1.125rem, 1rem + .65vw, 1.5rem);
+  --zubr-text-body: clamp(1rem, .95rem + .25vw, 1.125rem);
+  --zubr-text-small: .875rem;
+  --zubr-text-button: clamp(1rem, .95rem + .25vw, 1.125rem);
+  --zubr-leading-hero: 1.04;
+  --zubr-leading-heading: 1.15;
+  --zubr-leading-body: 1.55;
+  --zubr-tracking-display: -.025em;
+
+  --zubr-space-1: .25rem;
+  --zubr-space-2: .5rem;
+  --zubr-space-3: .75rem;
+  --zubr-space-4: 1rem;
+  --zubr-space-5: 1.25rem;
+  --zubr-space-6: 1.5rem;
+  --zubr-space-8: 2rem;
+  --zubr-space-10: 2.5rem;
+  --zubr-space-12: 3rem;
+  --zubr-space-16: 4rem;
+  --zubr-space-20: 5rem;
+  --zubr-space-24: 6rem;
+  --zubr-content-max: 77.5rem;
+  --zubr-prose-max: 47.5rem;
+  --zubr-gutter: clamp(1.25rem, 4vw, 3rem);
+  --zubr-section-space: clamp(3rem, 7vw, 6rem);
+  --zubr-card-gap: clamp(1rem, 2.2vw, 2rem);
+  --zubr-card-padding: clamp(1.25rem, 2.2vw, 2rem);
+  --zubr-radius-button: .375rem;
+  --zubr-radius-card: .375rem;
+  --zubr-control-height: 3.5rem;
+  --zubr-touch-min: 2.75rem;
+  --zubr-motion-fast: 180ms;
+  --zubr-motion-ease: ease-out;
+}
+
+/* Breakpoints: 480 / 768 / 1024 / 1280px.
+ * Use literal values in media queries; CSS vars do not work in media conditions.
+ * Components must allow wrapping and use min-height for controls.
+ */
+@media (max-width: 359px) {
+  :root { --zubr-gutter: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --zubr-motion-fast: 0ms; }
+}

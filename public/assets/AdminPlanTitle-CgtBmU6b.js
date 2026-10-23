@@ -1,0 +1,1 @@
+import{cE as t}from"./index-DeYhi4WE.js";function n({title:i,categoryLabel:s}){return t.jsxs("div",{children:[t.jsx("div",{className:"font-medium text-ink",children:i}),t.jsx("div",{className:"text-xs text-ink-soft",children:s})]})}export{n as A};

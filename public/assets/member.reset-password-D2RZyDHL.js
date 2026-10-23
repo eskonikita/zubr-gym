@@ -1,0 +1,1 @@
+import{bm as t,cE as r}from"./index-DeYhi4WE.js";import{R as e}from"./ResetPasswordPage-oQawmOht.js";import"./AuthLayout-Df8QCKe1.js";import"./AuthFormPrimitives-BVVMM0Jp.js";import"./triangle-alert-Dfr2C2Pl.js";import"./arrow-left-B_vvTe7X.js";function c(){const{token:o}=t.useSearch();return r.jsx(e,{portal:"member",token:o})}export{c as component};

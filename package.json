@@ -1,0 +1,21 @@
+{
+  "name": "zubr-gym-local",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local BronxGym reference and working frontend for the future Zubr Gym MODX site",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node tools/dev-server.mjs",
+    "mirror": "node tools/mirror.mjs",
+    "build:local": "node tools/prepare-local.mjs",
+    "sync:assets": "node tools/sync-assets.mjs",
+    "verify": "node tools/verify.mjs",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0"
+  }
+}
