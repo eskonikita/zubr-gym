@@ -17,6 +17,16 @@ async function copy(directory, output) {
     else if (/\.(html|css|js|json|webmanifest|xml|txt|svg)$/i.test(entry.name)) {
       let text = await fs.readFile(from, 'utf8');
       text = text.replace(rootPath, (_, quote, name) => quote + base + name);
+      if (/\.html$/i.test(entry.name)) {
+        text = text.replace(/\bsrcset\s*=\s*(["'])(.*?)\1/gi, (_, quote, candidates) => {
+          const rewritten = candidates.split(',').map(candidate => {
+            const value = candidate.trim();
+            if (value.startsWith(base) || !/^\/(?!\/)/.test(value)) return value;
+            return base + value.slice(1);
+          }).join(', ');
+          return `srcset=${quote}${rewritten}${quote}`;
+        });
+      }
       if (entry.name === 'index-DeYhi4WE.js') {
         text = text.replace('const a=e.replace(/^\\//,"")', `const a=e.replace(${JSON.stringify(base)},"/").replace(/^\\//,"")`);
       }
