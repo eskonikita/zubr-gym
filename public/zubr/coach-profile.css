@@ -1,0 +1,57 @@
+.coach-profile-page #main{gap:64px;min-height:0}
+.coach-profile-page .breadcrumbs{margin-bottom:32px}
+.coach-profile{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:72px;align-items:center}
+.coach-profile__photo{height:600px;overflow:hidden;border-radius:12px;background:linear-gradient(145deg,#e4e5e8,#d3d6da)}
+.coach-profile__photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+.coach-profile__role{margin:0 0 18px;font-size:14px;font-weight:600;color:var(--zubr-ink-soft)}
+.coach-profile h1{margin:0 0 24px;font-family:var(--zubr-font-display);font-size:clamp(44px,4.5vw,64px);font-weight:400;line-height:1.06;letter-spacing:-.035em;text-transform:uppercase}
+.coach-profile h1 span{display:block;color:var(--zubr-accent)}
+.coach-profile__lead{max-width:560px;font-size:20px;line-height:1.5}
+.coach-profile__experience{display:flex;align-items:center;gap:16px;margin-block:28px;padding-block:20px;border-block:1px solid var(--zubr-border)}
+.coach-profile__experience strong{font-size:52px;font-weight:800;line-height:1;color:var(--zubr-accent);letter-spacing:-.05em}
+.coach-profile__experience span{font-size:15px;line-height:1.4}
+.coach-profile__description{max-width:560px;margin:0 0 28px;font-size:16px;line-height:1.7;color:var(--zubr-ink-soft)}
+.coach-profile__call{gap:20px;min-height:52px;font-size:15px}
+.coach-profile__call svg{width:20px;height:20px;flex-shrink:0}
+.coach-details__layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:72px}
+.coach-profile-page h2{margin:0;font-family:var(--zubr-font-body);font-size:clamp(30px,3vw,40px);font-weight:800;line-height:1.12;letter-spacing:-.04em}
+.coach-profile-page h2 span{color:var(--zubr-accent)}
+.coach-details__summary{max-width:360px;margin:20px 0 0;font-size:16px;line-height:1.65;color:var(--zubr-ink-soft)}
+.coach-qualifications{margin:0;border-top:1px solid var(--zubr-border)}
+.coach-qualifications>div{padding:22px 0;border-bottom:1px solid var(--zubr-border)}
+.coach-qualifications dt{font-size:14px;color:var(--zubr-ink-soft)}
+.coach-qualifications dd{margin:8px 0 0;font-size:20px;font-weight:600;line-height:1.4}
+.coach-training__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:32px}
+.coach-training__grid>div{padding-top:24px;border-top:1px solid var(--zubr-border)}
+.coach-training h3{margin:0 0 12px;font-size:22px;font-weight:700}
+.coach-training p{max-width:520px;margin:0;color:var(--zubr-ink-soft);font-size:16px;line-height:1.7}
+.coach-profile__address{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:#fff;font-size:14px;min-height:32px}
+.coach-profile__address svg{width:18px;height:18px}
+.coach-profile__address:hover{color:var(--zubr-accent)}
+.coach-publication__row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:72px;padding-top:32px;border-top:1px solid var(--zubr-border)}
+.coach-publication__date{font-size:14px;color:var(--zubr-ink-soft)}
+.coach-publication p{margin:20px 0 16px;max-width:620px;font-size:16px;line-height:1.7;color:var(--zubr-ink-soft)}
+.coach-publication a{display:inline-flex;align-items:center;gap:12px;min-height:44px;font-size:14px;font-weight:600}
+.coach-publication a svg{width:18px;height:18px;color:var(--zubr-accent)}
+@media(max-width:1099px){.coach-profile,.coach-details__layout{gap:36px}.coach-profile__photo{height:540px}.coach-profile h1{font-size:44px}.coach-profile__lead{font-size:18px}}
+@media(max-width:767px){
+ .coach-profile-page #main{gap:48px}
+ .coach-profile-page .breadcrumbs{margin-bottom:24px}
+ .coach-profile{grid-template-columns:1fr;gap:28px}
+ .coach-profile__photo{height:400px}
+ .coach-profile__role{font-size:13px;margin-bottom:12px}
+ .coach-profile h1{font-size:clamp(32px,9vw,44px);margin-bottom:20px}
+ .coach-profile__lead{font-size:18px}
+ .coach-profile__experience{margin-block:24px;padding-block:18px}
+ .coach-profile__experience strong{font-size:44px}
+ .coach-profile__description{font-size:15px;margin-bottom:24px}
+ .coach-profile__call{width:100%;padding-inline:16px;font-size:14px;gap:12px}
+ .coach-details__layout{grid-template-columns:1fr;gap:24px}
+ .coach-profile-page h2{font-size:30px}
+ .coach-details__summary,.coach-training p{font-size:15px}
+ .coach-training__grid{grid-template-columns:1fr;gap:24px;margin-top:24px}
+ .coach-training h3{font-size:20px}
+ .coach-profile-page .coaches-visit{margin-top:0}
+ .coach-publication__row{grid-template-columns:1fr;gap:16px;padding-top:24px}
+ .coach-publication p{font-size:15px}
+}
