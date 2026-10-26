@@ -6,14 +6,26 @@
 .breadcrumbs a:hover{color:var(--zubr-accent)}
 .breadcrumbs svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.5;color:#999da5}
 .breadcrumbs [aria-current]{color:var(--zubr-ink)}
-.coaches-intro h1{margin:0;font-family:var(--zubr-font-display);font-size:clamp(48px,5.2vw,72px);font-weight:400;line-height:1.08;letter-spacing:-.035em;text-transform:uppercase}
+.coaches-intro h1{margin:0;font-family:var(--zubr-font-display);font-size:clamp(44px,4.5vw,60px);font-weight:400;line-height:1.08;letter-spacing:-.035em;text-transform:uppercase}
 .coaches-intro h1 span{color:var(--zubr-accent)}
 .coaches-carousel-controls{display:flex;justify-content:flex-end;margin-bottom:24px}
 .coaches-carousel-controls:has(.trainers-controls[hidden]){display:none}
+.coaches-visit{margin-top:24px}
+.coaches-visit__panel{display:flex;align-items:center;justify-content:space-between;gap:48px;padding:40px;border-radius:12px;background:var(--zubr-ink);color:#fff}
+.coaches-visit__copy{max-width:700px}
+.coaches-visit h2{margin:0 0 16px;font-family:var(--zubr-font-body);font-size:clamp(28px,2.6vw,36px);font-weight:800;line-height:1.15;letter-spacing:-.035em}
+.coaches-visit h2 span{color:var(--zubr-accent)}
+.coaches-visit p{margin:0;color:#c4c7ce;font-size:16px;line-height:1.65}
+.coaches-visit__call{flex-shrink:0;min-height:52px;gap:12px;padding:16px 20px;font-size:16px;white-space:nowrap}
+.coaches-visit__call svg{width:20px;height:20px}
 @media(max-width:767px){
   .coaches-page #main{gap:28px;padding-block:20px 48px;min-height:0}
   .breadcrumbs{margin-bottom:24px;font-size:12px}
   .breadcrumbs ol,.breadcrumbs li{gap:8px}
-  .coaches-intro h1{font-size:clamp(30px,8vw,44px);line-height:1.12}
+  .coaches-intro h1{font-size:clamp(28px,7.4vw,40px);line-height:1.12}
   .coaches-carousel-controls{display:none}
+  .coaches-visit{margin-top:8px}
+  .coaches-visit__panel{align-items:stretch;flex-direction:column;gap:24px;padding:28px 24px}
+  .coaches-visit h2{font-size:28px}
+  .coaches-visit p{font-size:14px}
 }
