@@ -1,0 +1,70 @@
+.discipline-page #main{gap:64px;min-height:0}
+.discipline-page .breadcrumbs{margin-bottom:40px}
+.discipline-hero{position:relative;isolation:isolate;overflow:hidden;min-height:430px;display:flex;align-items:center;padding:48px;border-radius:12px;background:#111214;color:#fff}
+.discipline-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#111214f5 20%,#111214c9),url('./images/gym-6.webp') center/cover}
+.discipline-hero__copy{position:relative;z-index:1;width:70%}
+.discipline-hero h1{margin:0 0 24px;font-family:var(--zubr-font-display);font-size:clamp(42px,4.5vw,60px);font-weight:400;line-height:1.08;letter-spacing:-.035em;text-transform:uppercase}
+.discipline-hero h1 span{display:block;color:var(--zubr-accent)}
+.discipline-hero__copy>p{max-width:620px;margin:0;font-size:18px;line-height:1.65;color:#d3d5da;text-wrap:pretty}
+.discipline-hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.discipline-hero__actions .button{min-height:52px;padding:15px 20px;gap:12px;font-size:14px}
+.discipline-hero__actions svg{width:19px;height:19px}
+.discipline-hero__prices{border:1px solid #ffffff50;background:transparent;color:#fff}
+.discipline-hero__prices:hover{border-color:#fff;background:#ffffff12;color:#fff}
+.discipline-hero__art{position:absolute;right:24px;top:16px;width:30%;height:calc(100% - 32px);object-fit:contain;object-position:center;pointer-events:none}
+.discipline-page h2{margin:0;font-family:var(--zubr-font-body);font-size:clamp(30px,3vw,40px);font-weight:800;line-height:1.12;letter-spacing:-.04em}
+.discipline-page h2 span{color:var(--zubr-accent)}
+.discipline-about__layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+.discipline-about__photo{width:100%;height:600px;object-fit:cover;border-radius:12px}
+.discipline-about__copy>p{margin:16px 0 0;font-size:15px;line-height:1.8;color:var(--zubr-ink-soft)}
+.discipline-about__copy p.discipline-about__lead{margin-top:24px;font-size:18px;line-height:1.65;color:var(--zubr-ink)}
+.discipline-about__copy h3{margin:28px 0 0;font-size:21px;font-weight:600;line-height:1.4;letter-spacing:-.02em}
+.discipline-about__copy p a{color:var(--zubr-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.discipline-text-link{display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:20px;font-size:14px;font-weight:600}
+.discipline-text-link svg{width:18px;height:18px;color:var(--zubr-accent)}
+.discipline-program__panel{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:64px;padding:48px;border-radius:12px;background:#111214;color:#fff}
+.discipline-program__panel:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#111214f2,#111214db),url('./images/gym-5.webp') center/cover}
+.discipline-program h2{max-width:430px;font-size:clamp(32px,3.3vw,46px)}
+.discipline-program h2 span{display:block}
+.discipline-program p{max-width:440px;margin:24px 0 16px;font-size:15px;line-height:1.7;color:#c5c8ce}
+.discipline-program a{display:inline-flex;align-items:center;gap:12px;min-height:44px;font-size:14px;font-weight:600}
+.discipline-program a svg{width:18px;height:18px;color:var(--zubr-accent)}
+.discipline-program ol{list-style:none;margin:0;padding:0;align-self:center}
+.discipline-program li{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid #ffffff24;font-size:19px;font-weight:600;line-height:1.35}
+.discipline-program li:first-child{padding-top:0}
+.discipline-program li:last-child{padding-bottom:0;border:0}
+.discipline-program li>span{font-size:12px;font-weight:500;color:var(--zubr-accent);flex:0 0 22px}
+.discipline-page .groups-section h2{font-size:clamp(30px,3vw,40px)}
+.discipline-page .faq-intro h2 span{display:block}
+.discipline-page .coaches-visit{margin-top:0}
+@media(max-width:1099px){
+ .discipline-hero{padding:32px}
+ .discipline-hero h1{font-size:44px}
+ .discipline-hero__copy>p{font-size:16px}
+ .discipline-hero__art{right:12px;width:28%}
+ .discipline-about__layout{gap:36px}
+ .discipline-about__photo{height:560px}
+ .discipline-program__panel{padding:32px;gap:36px}
+ .discipline-program li{font-size:17px}
+}
+@media(max-width:767px){
+ .discipline-page #main{gap:40px}
+ .discipline-page .breadcrumbs{margin-bottom:24px}
+ .discipline-hero{flex-direction:column;align-items:stretch;min-height:0;padding:24px}
+ .discipline-hero__art{position:relative;inset:auto;width:100%;height:210px;order:-1;margin-bottom:24px}
+ .discipline-hero__copy{width:100%}
+ .discipline-hero h1{font-size:clamp(30px,8vw,42px);margin-bottom:20px}
+ .discipline-hero__copy>p{font-size:15px;line-height:1.65}
+ .discipline-hero__actions{display:grid;gap:12px;margin-top:24px}
+ .discipline-hero__actions .button{padding:14px 12px;font-size:13px;gap:8px}
+ .discipline-about__layout{grid-template-columns:1fr;gap:28px}
+ .discipline-about__photo{height:320px;object-position:center 55%}
+ .discipline-page h2,.discipline-page .groups-section h2{font-size:30px}
+ .discipline-about__copy p.discipline-about__lead{font-size:17px;margin-top:20px}
+ .discipline-about__copy h3{font-size:20px;margin-top:24px}
+ .discipline-about__copy>p{font-size:14px;line-height:1.75}
+ .discipline-program__panel{grid-template-columns:1fr;padding:28px 24px;gap:32px}
+ .discipline-program h2{font-size:32px}
+ .discipline-program p{font-size:14px;margin-top:20px}
+ .discipline-program li{font-size:17px;gap:12px;padding-block:16px}
+}

@@ -1,0 +1,33 @@
+.audience-page #main{gap:48px;min-height:0}
+.audience-intro>p{margin:20px 0 0;font-size:18px;line-height:1.6;color:var(--zubr-ink-soft);text-wrap:pretty}
+.audience-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.audience-link{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:32px;border-radius:10px;background:#fff;transition:background 180ms ease}
+.audience-link h3{margin:0 0 12px;font-size:23px;font-weight:700;line-height:1.3;letter-spacing:-.025em}
+.audience-link p{max-width:450px;margin:0;color:var(--zubr-ink-soft);font-size:15px;line-height:1.65}
+.audience-link>svg{width:22px;height:22px;flex-shrink:0;color:var(--zubr-accent);transition:transform 180ms ease}
+.audience-link:hover{background:#f8f8f9;color:var(--zubr-ink)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.audience-link:hover>svg{transform:translateX(3px)}}
+.audience-training h2{margin:0;font-family:var(--zubr-font-body);font-size:clamp(30px,3vw,40px);font-weight:800;line-height:1.12;letter-spacing:-.04em}
+.audience-training h2 span{color:var(--zubr-accent)}
+.audience-training__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;margin-top:28px}
+.audience-training article{display:flex;flex-direction:column;align-items:flex-start;border-top:1px solid var(--zubr-border);padding-top:24px}
+.audience-training__number{color:var(--zubr-accent);font-size:13px;font-weight:700;margin-bottom:12px}
+.audience-training h3{font-size:24px;margin-bottom:16px}
+.audience-training p{font-size:16px;line-height:1.7;margin:0 0 20px;max-width:540px}
+.audience-training .text-link{margin-top:auto;font-size:15px}
+.audience-training .text-link svg{color:var(--zubr-accent)}
+.audience-page .coaches-visit{margin-top:0}
+@media(max-width:1099px){.audience-link{padding:24px}}
+@media(max-width:767px){
+ .audience-page #main{gap:32px}
+ .audience-intro>p{margin-top:16px;font-size:15px}
+ .audience-links{grid-template-columns:1fr;gap:16px}
+ .audience-link{padding:24px;gap:16px}
+ .audience-link h3{font-size:21px}
+ .audience-link p{font-size:14px}
+ .audience-training h2{font-size:30px}
+ .audience-training__grid{grid-template-columns:1fr;gap:24px;margin-top:24px}
+ .audience-training h3{font-size:22px}
+ .audience-training p{font-size:15px}
+}
+.audience-training__heading{display:flex;align-items:center;gap:12px;margin-bottom:16px}.audience-training__heading .audience-training__number,.audience-training__heading h3{margin:0}

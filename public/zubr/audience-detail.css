@@ -1,0 +1,37 @@
+.audience-detail .discipline-hero{min-height:470px}
+.audience-detail .discipline-hero__copy{width:68%}
+.audience-detail .discipline-hero h1{font-size:clamp(34px,3.6vw,50px);max-width:760px}
+.audience-detail .discipline-hero:before{background:radial-gradient(ellipse at 100% 0%,#de001423,transparent 65%),linear-gradient(90deg,#111214f7,#111214dc),url('./images/gym-6.webp') center/cover}
+.audience-detail .discipline-about__photo{height:100%;min-height:600px;max-height:800px}
+.audience-directions{background:#111214;color:#fff;padding-block:48px!important}
+.audience-directions__heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:32px}
+.audience-directions__heading .discipline-text-link{margin:0;color:#fff}
+.audience-directions__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.audience-direction{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;min-height:310px;padding:32px;border:1px solid #ffffff24;border-radius:10px;background:#1a1c1f;color:#fff;transition:border-color 180ms ease,background 180ms ease}
+.audience-direction>div{position:relative;z-index:1;width:62%}
+.audience-direction h3{font-size:28px;margin-bottom:16px;letter-spacing:-.025em}
+.audience-direction p{font-size:15px;line-height:1.65;color:#d3d5da}
+.audience-direction span{display:inline-flex;align-items:center;gap:12px;margin-top:24px;font-size:14px;font-weight:600;color:#fff}
+.audience-direction span svg{width:20px;color:var(--zubr-accent)}
+.audience-direction img{position:absolute;right:8px;top:16px;width:36%;height:calc(100% - 32px);object-fit:contain;transition:transform 180ms ease}
+.audience-direction:hover{background:#212326;color:#fff}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.audience-direction:hover img{transform:scale(1.025)}}
+@media(max-width:1099px){.audience-detail .discipline-hero h1{font-size:38px}.audience-direction{padding:24px}.audience-direction h3{font-size:25px}.audience-detail .discipline-about__layout{grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:32px}}
+@media(max-width:767px){
+.audience-detail .discipline-hero{min-height:0}
+.audience-detail .discipline-hero__copy{width:100%}
+.audience-detail .discipline-hero h1{font-size:clamp(28px,7.5vw,40px)}
+.audience-detail .discipline-hero__art{height:200px}
+.audience-detail .discipline-about__layout{grid-template-columns:1fr;gap:28px}
+.audience-detail .discipline-about__photo{height:280px;min-height:0;max-height:none}
+.audience-directions{padding-block:32px!important}
+.audience-directions__heading{display:block;margin-bottom:24px}
+.audience-directions__heading .discipline-text-link{margin-top:12px}
+.audience-directions__grid{grid-template-columns:1fr;gap:16px}
+.audience-direction{min-height:280px}
+.audience-direction h3{font-size:24px}
+.audience-direction p{font-size:14px}
+.audience-direction>div{width:65%}
+.audience-direction img{right:0;width:33%}
+}
+#main>.audience-directions{background:#111214!important}
