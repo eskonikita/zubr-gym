@@ -138,7 +138,7 @@ function syncGroupTabOrientation() {
 }
 syncGroupTabOrientation();
 stackedGroupTabs.addEventListener('change', syncGroupTabOrientation);
-const galleryPhotos = [...document.querySelectorAll('#gym-slider [data-gallery]')];
+const galleryPhotos = [...document.querySelectorAll('#gym-slider [data-gallery], [data-gallery-page] [data-gallery]')];
 let galleryIndex = -1;
 function showGalleryPhoto(trigger) {
   const caption = trigger.dataset.caption;
@@ -360,6 +360,7 @@ footerColumns.forEach(column => {
   const state = { expanded: column.open, animation: null };
   footerDisclosureState.set(column, state);
   summary.addEventListener('click', event => {
+    if (event.target.closest('a')) return;
     if (!footerMobile.matches) return;
     event.preventDefault();
     const startHeight = column.getBoundingClientRect().height;
@@ -420,6 +421,7 @@ document.querySelectorAll('.faq-list details, .mobile-section').forEach(details 
   let animation = null;
   summary.setAttribute('aria-expanded', String(expanded));
   summary.addEventListener('click', event => {
+    if (event.target.closest('a')) return;
     event.preventDefault();
     const startHeight = details.getBoundingClientRect().height;
     animation?.cancel();

@@ -1,0 +1,6 @@
+.faq-page #main{min-height:0}
+.faq-page-intro>p{margin:20px 0 0;font-size:18px;line-height:1.6;color:var(--zubr-ink-soft)}
+@media(max-width:767px){.faq-page-intro>p{margin-top:16px;font-size:15px}}
+
+.faq-page .faq-layout{display:block}
+.faq-page .faq-list details p{max-width:none}

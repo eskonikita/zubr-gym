@@ -1,0 +1,4 @@
+.first-visit-page #main{min-height:0}
+.first-visit-intro>p{margin:20px 0 0;font-size:18px;line-height:1.6;color:var(--zubr-ink-soft)}
+.first-visit-page #main>.first-visit{margin-block:0}
+@media(max-width:767px){.first-visit-intro>p{margin-top:16px;font-size:15px}}

@@ -13,11 +13,14 @@
 .coaches-visit{margin-top:24px}
 .coaches-visit__panel{display:flex;align-items:center;justify-content:space-between;gap:48px;padding:40px;border-radius:12px;background:var(--zubr-ink);color:#fff}
 .coaches-visit__copy{max-width:700px}
-.coaches-visit h2{margin:0 0 16px;font-family:var(--zubr-font-body);font-size:clamp(28px,2.6vw,36px);font-weight:800;line-height:1.15;letter-spacing:-.035em}
+.coaches-page .coaches-visit h2{margin:0;font-family:var(--zubr-font-body);font-size:clamp(30px,3vw,40px);font-weight:800;line-height:1.12;letter-spacing:-.04em}
 .coaches-visit h2 span{color:var(--zubr-accent)}
 .coaches-visit p{margin:0;color:#c4c7ce;font-size:16px;line-height:1.65}
 .coaches-visit__call{flex-shrink:0;min-height:52px;gap:12px;padding:16px 20px;font-size:16px;white-space:nowrap}
 .coaches-visit__call svg{width:20px;height:20px}
+.coaches-visit__address{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:#fff;font-size:14px;min-height:32px}
+.coaches-visit__address svg{width:18px;height:18px}
+.coaches-visit__address:hover{color:var(--zubr-accent)}
 @media(max-width:767px){
   .coaches-page #main{gap:28px;padding-block:20px 48px;min-height:0}
   .breadcrumbs{margin-bottom:24px;font-size:12px}
@@ -26,6 +29,9 @@
   .coaches-carousel-controls{display:none}
   .coaches-visit{margin-top:8px}
   .coaches-visit__panel{align-items:stretch;flex-direction:column;gap:24px;padding:28px 24px}
-  .coaches-visit h2{font-size:28px}
+  .coaches-page .coaches-visit h2{font-size:30px}
   .coaches-visit p{font-size:14px}
 }
+
+/* Keep introductory copy from ending with an isolated word. */
+.coaches-intro>p,.hall-intro>p,.contacts-intro>p{ text-wrap:pretty }
