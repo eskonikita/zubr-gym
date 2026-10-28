@@ -1,0 +1,13 @@
+.footer-operator{display:grid;gap:6px;margin:16px 0 20px;color:#aeb1b9;font-size:12px;line-height:1.65}
+.footer-operator>a{width:fit-content;max-width:100%;overflow-wrap:anywhere}
+.footer-operator>a:hover{color:#fff}
+.organization-section h2{margin:0 0 20px;font-family:var(--zubr-font-body);font-weight:800;font-size:clamp(30px,3vw,40px);line-height:1.15;letter-spacing:-.035em}
+.organization-section h2 span{color:var(--zubr-accent)}
+.organization-records{max-width:1000px;margin:0}
+.organization-records>div{display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;padding:12px 0;border-top:1px solid var(--zubr-border);font-size:15px;line-height:1.6}
+.organization-records dt{color:var(--zubr-ink-soft)}
+.organization-records dd{margin:0;overflow-wrap:anywhere}
+.organization-records a{text-decoration:underline;text-underline-offset:3px}
+.contacts-row a.contacts-email{font-size:clamp(17px,1.7vw,22px);overflow-wrap:anywhere;word-break:break-word}
+.legal-records dd{overflow-wrap:anywhere}
+@media(max-width:767px){.footer-operator{margin:14px 0 20px}.organization-section h2{font-size:28px;margin-bottom:16px}.organization-records>div{grid-template-columns:1fr;gap:4px;padding:12px 0;font-size:14px}.contacts-row a.contacts-email{font-size:18px}}

@@ -1,0 +1,23 @@
+.direction-story__intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.direction-story__label{margin:0 0 20px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--zubr-ink-soft)}
+.discipline-page .direction-story h2{font-size:clamp(30px,3vw,42px);max-width:600px}
+.direction-story__lead{margin:0;font-size:18px;line-height:1.75;text-wrap:pretty}
+.direction-story__facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin:36px 0 28px}
+.direction-story__facts>div{border-top:1px solid var(--zubr-border);padding-top:20px}
+.direction-story__facts dt{font-size:20px;font-weight:700;line-height:1.35}
+.direction-story__facts dd{margin:8px 0 0;font-size:14px;color:var(--zubr-ink-soft)}
+.direction-story__photo{position:relative;overflow:hidden;border-radius:12px;height:360px;margin:0}
+.direction-story__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 66%}
+.direction-story__photo:after{position:absolute;inset:55% 0 0;content:"";background:linear-gradient(transparent,#111214b8);pointer-events:none}
+.direction-story__photo figcaption{position:absolute;left:28px;bottom:24px;right:24px;z-index:1;color:#fff;font-size:14px}
+.direction-practice{margin-top:48px}
+.direction-practice ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;list-style:none;padding:0;margin:28px 0 0}
+.direction-practice li{padding-top:20px;border-top:2px solid var(--zubr-ink)}
+.direction-practice__title{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+.direction-practice__title>span{color:var(--zubr-accent);font-size:12px;font-weight:700}
+.direction-practice h3{font-size:21px;line-height:1.35;letter-spacing:-.025em}
+.direction-practice li p{font-size:15px;line-height:1.75;margin:0}
+.direction-practice__note{font-size:14px;line-height:1.7;max-width:780px;margin:28px 0 0}
+.direction-practice__note a{font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1099px){.direction-story__intro{gap:32px}.direction-story__lead{font-size:16px}.direction-story__facts,.direction-practice ol{gap:24px}.direction-practice h3{font-size:20px}}
+@media(max-width:767px){.direction-story__intro{grid-template-columns:1fr;gap:20px}.direction-story__label{margin-bottom:14px;font-size:11px}.discipline-page .direction-story h2{font-size:30px}.direction-story__lead{font-size:15px}.direction-story__intro .discipline-text-link{margin-top:12px}.direction-story__facts{grid-template-columns:1fr;gap:16px;margin:24px 0}.direction-story__facts>div{padding-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:16px}.direction-story__facts dt{font-size:17px}.direction-story__facts dd{font-size:13px;margin:0}.direction-story__photo{height:260px}.direction-story__photo figcaption{left:20px;bottom:20px;font-size:12px}.direction-practice{margin-top:32px}.direction-practice ol{grid-template-columns:1fr;gap:24px;margin-top:24px}.direction-practice h3{font-size:21px}.direction-practice li p{font-size:14px}.direction-practice__note{font-size:13px;margin-top:24px}}
