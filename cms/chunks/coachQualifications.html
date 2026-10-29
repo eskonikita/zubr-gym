@@ -1,0 +1,11 @@
+<section class="section coach-details" aria-labelledby="qualification-title">
+	<div class="container coach-details__layout">
+		<div>
+			<h2 id="qualification-title">[[+qualification_heading]]</h2>
+			<p class="coach-details__summary">[[+qualification_intro:htmlent]]</p>
+		</div>
+		<dl class="coach-qualifications">
+			[[!getImageList? &tvname=`coach_qualifications` &tpl=`coachQualification` &limit=`0` &processTVs=`0` &totalVar=`coachQualificationsTotal`]]
+		</dl>
+	</div>
+</section>

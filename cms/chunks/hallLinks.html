@@ -1,0 +1,15 @@
+<section class="section hall-links" aria-label="Разделы о зале">
+	<div class="container hall-links__grid">
+		[[!pdoResources?
+			&parents=`[[*id]]`
+			&depth=`0`
+			&limit=`0`
+			&sortby=`{"menuindex":"ASC","id":"ASC"}`
+			&where=`{"class_key":"MODX\\Revolution\\modDocument","context_key":"web"}`
+			&showHidden=`1`
+			&showUnsearchable=`1`
+			&tpl=`hallCardResource`
+		]]
+		[[!getImageList? &tvname=`hall_instagram` &tpl=`hallInstagram` &limit=`1` &where=`{"enabled":"1"}` &totalVar=`hallInstagramTotal`]]
+	</div>
+</section>

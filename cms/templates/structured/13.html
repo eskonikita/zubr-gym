@@ -1,0 +1,11 @@
+[[$head]]
+[[$header]]
+<main id="main">
+	[[$coachHero]]
+	[[!getImageList? &tvname=`coach_blocks` &tpl=`coachQualifications` &limit=`1` &processTVs=`0` &totalVar=`coachBlocksTotal`]]
+	[[!getImageList? &tvname=`coach_blocks` &tpl=`coachPublication` &limit=`1` &processTVs=`0` &totalVar=`coachBlocksTotal` &where=`{"publication_enabled":"1"}`]]
+	[[!getImageList? &tvname=`coach_blocks` &tpl=`coachTraining` &limit=`1` &processTVs=`0` &totalVar=`coachBlocksTotal`]]
+	[[!getImageList? &tvname=`coach_blocks` &tpl=`coachVisit` &limit=`1` &processTVs=`0` &totalVar=`coachBlocksTotal` &where=`{"visit_enabled":"1"}`]]
+	[[$trainingCta]]
+</main>
+[[$footer]]

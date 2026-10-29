@@ -1,0 +1,112 @@
+[[$head]]
+[[$header]]
+		<main id="main">
+			<div class="container contacts-intro">
+				[[$breadcrumbs]]
+				<h1>[[*page_heading]]</h1>
+				<p>[[*page_intro]]</p>
+			</div>
+			<section class="section contact-details" aria-label="Связь с залом и карта">
+				<div class="container contacts-grid">
+					<div class="contacts-details">
+						<div class="contacts-row">
+							<svg aria-hidden="true" viewBox="0 0 24 24">
+								<rect x="3" y="5" width="18" height="14" rx="2"/>
+								<path d="m3 6 9 7 9-7"/>
+							</svg>
+							<div>
+								<h2>Электронная почта</h2>
+								<a class="contacts-email" href="mailto:[[++zubr_contact_email:htmlent]]">[[++zubr_contact_email:htmlent]]</a>
+							</div>
+						</div>
+						<div class="contacts-row">
+							<svg aria-hidden="true">
+								<use href="#phone"/>
+							</svg>
+							<div>
+								<h2>Телефон</h2>
+								<a class="contacts-phone" href="tel:[[++zubr_contact_phone:ZubrPhone]]">[[++zubr_contact_phone:htmlent]]</a>
+							</div>
+						</div>
+						<div class="contacts-row">
+							<svg aria-hidden="true">
+								<use href="#instagram"/>
+							</svg>
+							<div>
+								<h2>Instagram</h2>
+								<a class="contacts-instagram" href="https://www.instagram.com/[[++zubr_contact_instagram:htmlent]]/" target="_blank" rel="noopener noreferrer">@[[++zubr_contact_instagram:htmlent]]<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+							</div>
+						</div>
+						<div class="contacts-row">
+							<svg aria-hidden="true">
+								<use href="#pin"/>
+							</svg>
+							<div>
+								<h2>Адрес</h2>
+								<address><a class="contacts-address" href="[[++zubr_contact_map_url:htmlent]]" target="_blank" rel="noopener noreferrer">[[++zubr_contact_address:htmlent]]</a></address>
+							</div>
+						</div>
+						<div class="contacts-row">
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<circle cx="12" cy="12" r="9"/>
+								<path d="M12 7v5l3 2"/>
+							</svg>
+							<div>
+								<h2>Время работы</h2>
+								<dl class="contacts-hours">
+									<div>
+										<dt>Пн–пт</dt>
+										<dd>[[++zubr_contact_hours_weekdays:htmlent]]</dd>
+									</div>
+									<div>
+										<dt>Суббота</dt>
+										<dd>[[++zubr_contact_hours_saturday:htmlent]]</dd>
+									</div>
+									<div>
+										<dt>Воскресенье</dt>
+										<dd>[[++zubr_contact_hours_sunday:htmlent]]</dd>
+									</div>
+								</dl>
+								<p class="contacts-note">Уточните время своей группы по телефону.</p>
+							</div>
+						</div>
+					</div>
+					<div class="contacts-map">
+						<div class="contacts-map__frame">
+							<div class="contacts-map-consent" data-map-consent>
+								<svg aria-hidden="true"><use href="#pin"/></svg>
+								<p>[[++zubr_contact_address:htmlent]]</p>
+								<p>Карта доступна при разрешении этой функции в настройках cookie. Браузер обратится к сервису Яндекса. <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener noreferrer">Условия обработки данных</a>.</p>
+								<button class="button button-primary" type="button" data-load-map>Показать карту</button>
+							</div>
+							<iframe hidden data-map-src="[[++zubr_contact_map_embed:htmlent]]" width="560" height="480" title="ZUBR GYM на Яндекс Картах — [[++zubr_contact_address:htmlent]]" loading="lazy" allowfullscreen>
+							</iframe>
+						</div>
+						<div class="contacts-map__links">
+							<a href="[[++zubr_contact_map_url:htmlent]]" target="_blank" rel="noopener noreferrer">ZUBR GYM на Яндекс Картах<svg aria-hidden="true"><use href="#arrow"/></svg></a>
+							<a class="button contacts-route" href="[[++zubr_contact_route_url:htmlent]]" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#pin"/></svg>Построить маршрут</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section organization-section" aria-labelledby="organization-title">
+				<div class="container">
+					<h2 id="organization-title">Реквизиты <span>организации</span></h2>
+					<dl class="organization-records">
+						<div>
+							<dt>Организация</dt>
+							<dd>[[++zubr_org_name:htmlent]]</dd>
+						</div>
+						<div>
+							<dt>УНП</dt>
+							<dd>[[++zubr_org_unp:htmlent]]</dd>
+						</div>
+						<div>
+							<dt>Юридический адрес</dt>
+							<dd>[[++zubr_org_legal_address:htmlent]]</dd>
+						</div>
+					</dl>
+				</div>
+			</section>
+		</main>
+		[[$footer]]

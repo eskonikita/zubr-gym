@@ -1,0 +1,20 @@
+<section class="section directions" id="directions" aria-labelledby="directions-title">
+	<div class="container">
+		<div class="directions__header">
+			<h2 class="directions__title" id="directions-title">Выбери <span>направление</span></h2>
+			<a class="directions__schedule section-action" href="[[~33? &scheme=`abs`]]">Расписание тренировок<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+		</div>
+		<div class="directions__grid">
+			[[!pdoResources?
+&parents=`5`
+&depth=`0`
+&limit=`0`
+&sortby=`{"menuindex":"ASC","id":"ASC"}`
+&where=`{"template":14,"class_key":"MODX\Revolution\modDocument","context_key":"web"}`
+&showHidden=`1`
+&showUnsearchable=`1`
+&tpl=`directionHomeItem`
+		]]
+		</div>
+	</div>
+</section>

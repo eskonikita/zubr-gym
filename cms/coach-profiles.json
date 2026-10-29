@@ -1,0 +1,68 @@
+{
+    "14": {
+        "name": "Андрей Гунда",
+        "slug": "andrey-gunda",
+        "uri": "/club/coaches/andrey-gunda/",
+        "content": "<section class=\"section coach-details\" aria-labelledby=\"qualification-title\">\r\n\t<div class=\"container coach-details__layout\">\r\n\t\t<div>\r\n\t\t\t<h2 id=\"qualification-title\">Тренер и <span>занятия в клубе</span></h2>\r\n\t\t\t<p class=\"coach-details__summary\">[[*coach_qualification_intro]]</p>\r\n\t\t</div>\r\n\t\t<dl class=\"coach-qualifications\">\r\n\t\t\t[[RepeatItems? &tv=`coach_qualifications` &tpl=`coachQualification`]]\r\n\t\t</dl>\r\n\t</div>\r\n</section>\r\n<section class=\"section coach-training\" aria-labelledby=\"training-title\">\r\n\t<div class=\"container\">\r\n\t\t<h2 id=\"training-title\">Как начать <span>тренироваться</span></h2>\r\n\t\t<div class=\"coach-training__grid\">\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Выберите подходящую группу</h3>\r\n\t\t\t\t<p>В ZUBR GYM занимаются дети, подростки и взрослые. При обращении назовите возраст, расскажите об опыте и сообщите, что хотите заниматься с Андреем Гундой. В клубе подскажут доступные группы и время занятий.</p>\r\n\t\t\t</div>\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Обсудите свою задачу</h3>\r\n\t\t\t\t<p>Если вы начинаете с нуля, возвращаетесь после перерыва или хотите уделить внимание отдельным элементам техники, расскажите об этом тренеру. Возможность персонального формата, программу и время согласуйте заранее.</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</section>\r\n<section class=\"section coach-training\" aria-labelledby=\"first-visit-title\">\r\n\t<div class=\"container\">\r\n\t\t<h2 id=\"first-visit-title\">Перед <span>первым визитом</span></h2>\r\n\t\t<div class=\"coach-training__grid\">\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Уточните время</h3>\r\n\t\t\t\t<p>Посмотрите <a href=\"/info/schedule/\">расписание</a> и позвоните в зал, чтобы уточнить занятия с Андреем Гундой. Условия группового абонемента и персональных тренировок доступны в разделе <a href=\"/info/prices/\">«Цены»</a>.</p>\r\n\t\t\t</div>\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Подготовьтесь к тренировке</h3>\r\n\t\t\t\t<p>Возьмите удобную спортивную форму, воду и сменную обувь. Требования к экипировке уточните перед посещением. Подробнее о знакомстве с залом — на странице <a href=\"/club/first-visit/\">«Первый визит»</a>.</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</section>",
+        "values": {
+            "page_heading": "Андрей <span>Гунда</span>",
+            "page_intro": "Тренер команды ZUBR GYM. Поможем выбрать группу и уточнить условия занятий с тренером.",
+            "coach_role": "Тренер ZUBR GYM · Гродно",
+            "coach_experience": "15+",
+            "coach_description": "Андрей Гунда работает в команде ZUBR GYM. Тренировки проходят по адресу [[++zubr_contact_address:htmlent]]. Для подбора группы и знакомства с тренером свяжитесь с клубом.",
+            "coach_qualification_intro": "В команде ZUBR GYM — 15+ лет тренерского опыта. Возрастные группы, время занятий и возможность персональной тренировки уточняйте в клубе.",
+            "coach_photo": "/zubr/images/coaches/andrey-gunda-cutout.webp",
+            "coach_photo_alt": "Андрей Гунда, тренер ZUBR GYM",
+            "coach_qualifications": "[{\"label\":\"Тренерский опыт\",\"value\":\"15+ лет\"},{\"label\":\"Место тренировок\",\"value\":\"ZUBR GYM, Гродно\"},{\"label\":\"Первое посещение\",\"value\":\"Знакомство с залом и подходящей группой\"}]",
+            "cta_description": "Первое занятие в ZUBR GYM бесплатно. Позвоните в клуб, чтобы уточнить время и возможность тренировки с Андреем Гундой.",
+            "seo_title": "Андрей Гунда — тренер ZUBR GYM в Гродно",
+            "seo_description": "Андрей Гунда — тренер ZUBR GYM в Гродно. Тренерский стаж — 15+ лет. Информация о занятиях, подборе группы и первом посещении клуба.",
+            "seo_image": "",
+            "seo_index": "1"
+        }
+    },
+    "17": {
+        "name": "Павел Апанасенок",
+        "slug": "pavel-apanasenok",
+        "uri": "/club/coaches/pavel-apanasenok/",
+        "content": "<section class=\"section coach-details\" aria-labelledby=\"qualification-title\">\r\n\t<div class=\"container coach-details__layout\">\r\n\t\t<div>\r\n\t\t\t<h2 id=\"qualification-title\">Тренер и <span>занятия в клубе</span></h2>\r\n\t\t\t<p class=\"coach-details__summary\">[[*coach_qualification_intro]]</p>\r\n\t\t</div>\r\n\t\t<dl class=\"coach-qualifications\">\r\n\t\t\t[[RepeatItems? &tv=`coach_qualifications` &tpl=`coachQualification`]]\r\n\t\t</dl>\r\n\t</div>\r\n</section>\r\n<section class=\"section coach-training\" aria-labelledby=\"training-title\">\r\n\t<div class=\"container\">\r\n\t\t<h2 id=\"training-title\">Как начать <span>тренироваться</span></h2>\r\n\t\t<div class=\"coach-training__grid\">\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Выберите подходящую группу</h3>\r\n\t\t\t\t<p>В ZUBR GYM занимаются дети, подростки и взрослые. При обращении назовите возраст, расскажите об опыте и сообщите, что хотите заниматься с Павлом Апанасенком. В клубе подскажут доступные группы и время занятий.</p>\r\n\t\t\t</div>\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Обсудите свою задачу</h3>\r\n\t\t\t\t<p>Если вы начинаете с нуля, возвращаетесь после перерыва или хотите уделить внимание отдельным элементам техники, расскажите об этом тренеру. Возможность персонального формата, программу и время согласуйте заранее.</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</section>\r\n<section class=\"section coach-training\" aria-labelledby=\"first-visit-title\">\r\n\t<div class=\"container\">\r\n\t\t<h2 id=\"first-visit-title\">Перед <span>первым визитом</span></h2>\r\n\t\t<div class=\"coach-training__grid\">\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Уточните время</h3>\r\n\t\t\t\t<p>Посмотрите <a href=\"/info/schedule/\">расписание</a> и позвоните в зал, чтобы уточнить занятия с Павлом Апанасенком. Условия группового абонемента и персональных тренировок доступны в разделе <a href=\"/info/prices/\">«Цены»</a>.</p>\r\n\t\t\t</div>\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Подготовьтесь к тренировке</h3>\r\n\t\t\t\t<p>Возьмите удобную спортивную форму, воду и сменную обувь. Требования к экипировке уточните перед посещением. Подробнее о знакомстве с залом — на странице <a href=\"/club/first-visit/\">«Первый визит»</a>.</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</section>",
+        "values": {
+            "page_heading": "Павел <span>Апанасенок</span>",
+            "page_intro": "Тренер команды ZUBR GYM. Поможем выбрать группу и уточнить условия занятий с тренером.",
+            "coach_role": "Тренер ZUBR GYM · Гродно",
+            "coach_experience": "8+",
+            "coach_description": "Павел Апанасенок работает в команде ZUBR GYM. Тренировки проходят по адресу [[++zubr_contact_address:htmlent]]. Для подбора группы и знакомства с тренером свяжитесь с клубом.",
+            "coach_qualification_intro": "В команде ZUBR GYM — 8+ лет тренерского опыта. Возрастные группы, время занятий и возможность персональной тренировки уточняйте в клубе.",
+            "coach_photo": "/zubr/images/coaches/pavel-apanasenok-cutout.webp",
+            "coach_photo_alt": "Павел Апанасенок, тренер ZUBR GYM",
+            "coach_qualifications": "[{\"label\":\"Тренерский опыт\",\"value\":\"8+ лет\"},{\"label\":\"Место тренировок\",\"value\":\"ZUBR GYM, Гродно\"},{\"label\":\"Первое посещение\",\"value\":\"Знакомство с залом и подходящей группой\"}]",
+            "cta_description": "Первое занятие в ZUBR GYM бесплатно. Позвоните в клуб, чтобы уточнить время и возможность тренировки с Павлом Апанасенком.",
+            "seo_title": "Павел Апанасенок — тренер ZUBR GYM в Гродно",
+            "seo_description": "Павел Апанасенок — тренер ZUBR GYM в Гродно. Тренерский стаж — 8+ лет. Информация о занятиях, подборе группы и первом посещении клуба.",
+            "seo_image": "",
+            "seo_index": "1"
+        }
+    },
+    "16": {
+        "name": "Артём Джабарян",
+        "slug": "artem-dzhabaryan",
+        "uri": "/club/coaches/artem-dzhabaryan/",
+        "content": "<section class=\"section coach-details\" aria-labelledby=\"qualification-title\">\r\n\t<div class=\"container coach-details__layout\">\r\n\t\t<div>\r\n\t\t\t<h2 id=\"qualification-title\">Тренер и <span>занятия в клубе</span></h2>\r\n\t\t\t<p class=\"coach-details__summary\">[[*coach_qualification_intro]]</p>\r\n\t\t</div>\r\n\t\t<dl class=\"coach-qualifications\">\r\n\t\t\t[[RepeatItems? &tv=`coach_qualifications` &tpl=`coachQualification`]]\r\n\t\t</dl>\r\n\t</div>\r\n</section>\r\n<section class=\"section coach-training\" aria-labelledby=\"training-title\">\r\n\t<div class=\"container\">\r\n\t\t<h2 id=\"training-title\">Как начать <span>тренироваться</span></h2>\r\n\t\t<div class=\"coach-training__grid\">\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Выберите подходящую группу</h3>\r\n\t\t\t\t<p>В ZUBR GYM занимаются дети, подростки и взрослые. При обращении назовите возраст, расскажите об опыте и сообщите, что хотите заниматься с Артёмом Джабаряном. В клубе подскажут доступные группы и время занятий.</p>\r\n\t\t\t</div>\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Обсудите свою задачу</h3>\r\n\t\t\t\t<p>Если вы начинаете с нуля, возвращаетесь после перерыва или хотите уделить внимание отдельным элементам техники, расскажите об этом тренеру. Возможность персонального формата, программу и время согласуйте заранее.</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</section>\r\n<section class=\"section coach-training\" aria-labelledby=\"first-visit-title\">\r\n\t<div class=\"container\">\r\n\t\t<h2 id=\"first-visit-title\">Перед <span>первым визитом</span></h2>\r\n\t\t<div class=\"coach-training__grid\">\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Уточните время</h3>\r\n\t\t\t\t<p>Посмотрите <a href=\"/info/schedule/\">расписание</a> и позвоните в зал, чтобы уточнить занятия с Артёмом Джабаряном. Условия группового абонемента и персональных тренировок доступны в разделе <a href=\"/info/prices/\">«Цены»</a>.</p>\r\n\t\t\t</div>\r\n\t\t\t<div>\r\n\t\t\t\t<h3>Подготовьтесь к тренировке</h3>\r\n\t\t\t\t<p>Возьмите удобную спортивную форму, воду и сменную обувь. Требования к экипировке уточните перед посещением. Подробнее о знакомстве с залом — на странице <a href=\"/club/first-visit/\">«Первый визит»</a>.</p>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</section>",
+        "values": {
+            "page_heading": "Артём <span>Джабарян</span>",
+            "page_intro": "Тренер команды ZUBR GYM. Поможем выбрать группу и уточнить условия занятий с тренером.",
+            "coach_role": "Тренер ZUBR GYM · Гродно",
+            "coach_experience": "10+",
+            "coach_description": "Артём Джабарян работает в команде ZUBR GYM. Тренировки проходят по адресу [[++zubr_contact_address:htmlent]]. Для подбора группы и знакомства с тренером свяжитесь с клубом.",
+            "coach_qualification_intro": "В команде ZUBR GYM — 10+ лет тренерского опыта. Возрастные группы, время занятий и возможность персональной тренировки уточняйте в клубе.",
+            "coach_photo": "/zubr/images/coaches/artem-dzhabaryan-cutout.webp",
+            "coach_photo_alt": "Артём Джабарян, тренер ZUBR GYM",
+            "coach_qualifications": "[{\"label\":\"Тренерский опыт\",\"value\":\"10+ лет\"},{\"label\":\"Место тренировок\",\"value\":\"ZUBR GYM, Гродно\"},{\"label\":\"Первое посещение\",\"value\":\"Знакомство с залом и подходящей группой\"}]",
+            "cta_description": "Первое занятие в ZUBR GYM бесплатно. Позвоните в клуб, чтобы уточнить время и возможность тренировки с Артёмом Джабаряном.",
+            "seo_title": "Артём Джабарян — тренер ZUBR GYM в Гродно",
+            "seo_description": "Артём Джабарян — тренер ZUBR GYM в Гродно. Тренерский стаж — 10+ лет. Информация о занятиях, подборе группы и первом посещении клуба.",
+            "seo_image": "",
+            "seo_index": "1"
+        }
+    }
+}

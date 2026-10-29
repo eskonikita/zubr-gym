@@ -3,7 +3,7 @@ const menuToggle = document.querySelector('.menu-toggle');
 const gallery = document.querySelector('.gallery-dialog');
 let galleryTrigger;
 function syncModalState() {
-  document.body.classList.toggle('modal-open', menu.open || gallery.open);
+  document.body.classList.toggle('modal-open', menu.open || gallery?.open);
   menuToggle.setAttribute('aria-expanded', String(menu.open));
 }
 let menuAnimation = null;
@@ -99,7 +99,7 @@ document.addEventListener('click', event => {
   if (!event.target.closest('.desktop-nav')) desktopSections.forEach(section => setDesktopSection(section, false));
 });
 document.addEventListener('keydown', event => {
-  if (event.key !== 'Escape' || menu.open || gallery.open) return;
+  if (event.key !== 'Escape' || menu.open || gallery?.open) return;
   const opened = desktopSections.find(section => section.dataset.open === 'true');
   if (opened) {
     opened.querySelector('.desktop-section-link').focus();
@@ -138,42 +138,44 @@ function syncGroupTabOrientation() {
 }
 syncGroupTabOrientation();
 stackedGroupTabs.addEventListener('change', syncGroupTabOrientation);
-const galleryPhotos = [...document.querySelectorAll('#gym-slider [data-gallery], [data-gallery-page] [data-gallery]')];
-let galleryIndex = -1;
-function showGalleryPhoto(trigger) {
-  const caption = trigger.dataset.caption;
-  gallery.querySelector('img').src = trigger.dataset.gallery;
-  gallery.querySelector('img').alt = caption;
-  gallery.querySelector('figcaption').textContent = caption;
-  galleryIndex = galleryPhotos.findIndex(photo => photo.dataset.gallery === trigger.dataset.gallery);
-  gallery.querySelector('.gallery-view-controls').hidden = galleryIndex < 0;
-  gallery.querySelector('[data-gallery-counter]').textContent = `${String(galleryIndex + 1).padStart(2, '0')} / ${String(galleryPhotos.length).padStart(2, '0')}`;
-}
-function moveGalleryPhoto(direction) {
-  if (galleryIndex >= 0) showGalleryPhoto(galleryPhotos[(galleryIndex + direction + galleryPhotos.length) % galleryPhotos.length]);
-}
-document.addEventListener('click', event => {
-  const trigger = event.target.closest('[data-gallery]');
-  if (!trigger || event.defaultPrevented) return;
-  galleryTrigger = trigger.hasAttribute('data-gym-clone') ? trigger.closest('#gym-slider') : trigger;
-  showGalleryPhoto(trigger);
-  gallery.showModal(); syncModalState();
-});
-gallery.querySelector('[data-gallery-prev]').addEventListener('click', () => moveGalleryPhoto(-1));
-gallery.querySelector('[data-gallery-next]').addEventListener('click', () => moveGalleryPhoto(1));
-gallery.addEventListener('keydown', event => {
-  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-    event.preventDefault();
-    moveGalleryPhoto(event.key === 'ArrowRight' ? 1 : -1);
+if (gallery) {
+  const galleryPhotos = [...document.querySelectorAll('#gym-slider [data-gallery], [data-gallery-page] [data-gallery]')];
+  let galleryIndex = -1;
+  function showGalleryPhoto(trigger) {
+    const caption = trigger.dataset.caption;
+    gallery.querySelector('img').src = trigger.dataset.gallery;
+    gallery.querySelector('img').alt = caption;
+    gallery.querySelector('figcaption').textContent = caption;
+    galleryIndex = galleryPhotos.findIndex(photo => photo.dataset.gallery === trigger.dataset.gallery);
+    gallery.querySelector('.gallery-view-controls').hidden = galleryIndex < 0;
+    gallery.querySelector('[data-gallery-counter]').textContent = `${String(galleryIndex + 1).padStart(2, '0')} / ${String(galleryPhotos.length).padStart(2, '0')}`;
   }
-});
-document.querySelector('[data-close-gallery]').addEventListener('click', () => gallery.close());
-gallery.addEventListener('close', () => { syncModalState(); galleryTrigger?.focus({preventScroll:true}); });
-for (const dialog of [gallery]) {
-  dialog.addEventListener('click', event => {
-    const rect = dialog.getBoundingClientRect();
-    if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+  function moveGalleryPhoto(direction) {
+    if (galleryIndex >= 0) showGalleryPhoto(galleryPhotos[(galleryIndex + direction + galleryPhotos.length) % galleryPhotos.length]);
+  }
+  document.addEventListener('click', event => {
+    const trigger = event.target.closest('[data-gallery]');
+    if (!trigger || event.defaultPrevented) return;
+    galleryTrigger = trigger.hasAttribute('data-gym-clone') ? trigger.closest('#gym-slider') : trigger;
+    showGalleryPhoto(trigger);
+    gallery.showModal(); syncModalState();
   });
+  gallery.querySelector('[data-gallery-prev]').addEventListener('click', () => moveGalleryPhoto(-1));
+  gallery.querySelector('[data-gallery-next]').addEventListener('click', () => moveGalleryPhoto(1));
+  gallery.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      moveGalleryPhoto(event.key === 'ArrowRight' ? 1 : -1);
+    }
+  });
+  document.querySelector('[data-close-gallery]').addEventListener('click', () => gallery.close());
+  gallery.addEventListener('close', () => { syncModalState(); galleryTrigger?.focus({preventScroll:true}); });
+  for (const dialog of [gallery]) {
+    dialog.addEventListener('click', event => {
+      const rect = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+    });
+  }
 }
 
 const gymTrack = document.querySelector('#gym-slider');
@@ -334,7 +336,8 @@ if (!sectionMotion.matches) {
 }
 
 // Mark the section currently passing through the upper part of the viewport.
-const headerNavLinks = [...document.querySelectorAll('.desktop-nav a')];
+const headerNavLinks = [...document.querySelectorAll('.desktop-nav a')]
+  .filter(link => link.hash && link.origin === location.origin && link.pathname === location.pathname);
 const headerSectionObserver = new IntersectionObserver(entries => {
   for (const entry of entries) {
     if (!entry.isIntersecting) continue;
@@ -352,7 +355,7 @@ document.querySelectorAll('[data-copyright-year]').forEach(element => {
 
 // Footer groups start closed on small screens and remain expanded on desktop.
 const footerMobile = matchMedia('(max-width: 767px)');
-const footerColumns = [...document.querySelectorAll('.footer-column')];
+const footerColumns = [...document.querySelectorAll('details.footer-column')];
 const footerDisclosureState = new WeakMap();
 footerColumns.forEach(column => {
   const summary = column.querySelector('summary');

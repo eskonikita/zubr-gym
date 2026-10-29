@@ -1,0 +1,15 @@
+<section class="section groups-section" id="groups" aria-labelledby="groups-title">
+	<div class="container">
+		<div class="section-heading">
+			<h2 id="groups-title">[[+groups_heading]]</h2>
+		</div>
+		<div class="group-selector">
+			<div class="group-tabs" role="tablist" aria-label="Формат тренировок" aria-orientation="vertical">
+				[[!getImageList? &tvname=`home_formats` &tpl=`directionFormatTab` &limit=`0` &processTVs=`0` &totalVar=`homeFormatsTabsTotal`]]
+			</div>
+			<div class="group-panels">
+				[[!getImageList? &tvname=`home_formats` &tpl=`directionFormatPanel` &limit=`0` &totalVar=`homeFormatsTotal`]]
+			</div>
+		</div>
+	</div>
+</section>

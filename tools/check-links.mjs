@@ -1,6 +1,7 @@
 import fs from 'node:fs';import path from 'node:path';
 const root=path.resolve(process.argv[2]||'public');const origin='https://site.test';const base=process.argv[3]||'/';
-function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(path.join(dir,e.name)):[path.join(dir,e.name)]);}
+const cmsDirectories=new Set(['core','manager','connectors','setup']);
+function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{const item=path.join(dir,e.name);const relative=path.relative(root,item).replaceAll('\\','/');if((dir===root&&cmsDirectories.has(e.name))||relative==='assets/components')return [];return e.isDirectory()?files(item):[item];});}
 const pages=files(root).filter(p=>p.endsWith('.html'));const failures=[];let links=0;
 for(const file of pages){const html=fs.readFileSync(file,'utf8');const route=base+path.relative(root,file).replaceAll('\\','/');
  for(const m of html.matchAll(/<a\b[^>]*\bhref\s*=\s*["']([^"']*)["'][^>]*>/gi)){

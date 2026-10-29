@@ -1,0 +1,207 @@
+{
+  "mode": "whole-html-templates",
+  "pages": [
+    {
+      "uri": "/",
+      "source": "public/index.html",
+      "title": "Главная",
+      "longtitle": "ZUBR GYM — тайский бокс и кикбоксинг в Гродно",
+      "description": "ZUBR GYM — тайский бокс и кикбоксинг в Гродно. Тренировки для детей, подростков и взрослых. Гродно, ул. Репина, 38. Телефон +375 29 580-51-48."
+    },
+    {
+      "uri": "/404/",
+      "source": "cms/templates/error-404.html",
+      "title": "Страница не найдена",
+      "hidden": true
+    },
+    {
+      "uri": "/club/",
+      "source": "public/club/index.html",
+      "title": "Зал",
+      "longtitle": "Зал ZUBR GYM в Гродно — тренеры, фотографии и первый визит",
+      "description": "Знакомьтесь с ZUBR GYM в Гродно: зал тайского бокса и кикбоксинга, тренеры, фотографии и информация перед первым визитом. Ул. Репина, 38."
+    },
+    {
+      "uri": "/directions/",
+      "source": "public/directions/index.html",
+      "title": "Направления",
+      "longtitle": "Тайский бокс и кикбоксинг в Гродно — направления ZUBR GYM",
+      "description": "Направления тренировок ZUBR GYM в Гродно: тайский бокс и кикбоксинг. Сравните технику, выберите групповые или персональные занятия. Первая тренировка бесплатно."
+    },
+    {
+      "uri": "/for/",
+      "source": "public/for/index.html",
+      "title": "Для кого",
+      "longtitle": "Тренировки для детей и взрослых в Гродно — для кого ZUBR GYM",
+      "description": "Кому подойдут тренировки в ZUBR GYM: детям от 5 лет, подросткам, взрослым новичкам и спортсменам с опытом. Тайский бокс и кикбоксинг в Гродно, групповые и персональные занятия."
+    },
+    {
+      "uri": "/info/",
+      "source": "public/info/index.html",
+      "title": "Информация",
+      "longtitle": "Информация ZUBR GYM — расписание, цены, FAQ и контакты",
+      "description": "Информация о тренировках ZUBR GYM в Гродно: расписание занятий, цены, ответы на вопросы, контакты и адрес зала."
+    },
+    {
+      "uri": "/privacy-policy/",
+      "source": "public/privacy-policy/index.html",
+      "title": "Политика конфиденциальности",
+      "longtitle": "Политика конфиденциальности — ZUBR GYM",
+      "description": "Обработка персональных данных при использовании сайта zubr-gym.by и обращении в ZUBR GYM."
+    },
+    {
+      "uri": "/terms-of-use/",
+      "source": "public/terms-of-use/index.html",
+      "title": "Пользовательское соглашение",
+      "longtitle": "Пользовательское соглашение — ZUBR GYM",
+      "description": "Правила использования информационного сайта ZUBR GYM — zubr-gym.by."
+    },
+    {
+      "uri": "/club/coaches/",
+      "source": "public/club/coaches/index.html",
+      "title": "Тренеры",
+      "longtitle": "Тренеры ZUBR GYM в Гродно — команда клуба",
+      "description": "Тренеры ZUBR GYM в Гродно: Андрей Пархомик, Андрей Гунда, Павел Апанасенок и Артём Джабарян. Команда клуба тайского бокса и кикбоксинга."
+    },
+    {
+      "uri": "/club/first-visit/",
+      "source": "public/club/first-visit/index.html",
+      "title": "Первый визит",
+      "longtitle": "Первая тренировка бесплатно — ZUBR GYM, Гродно",
+      "description": "Первая тренировка по тайскому боксу или кикбоксингу в ZUBR GYM бесплатно. Как подготовиться, что взять с собой и как прийти в зал на ул. Репина, 38 в Гродно."
+    },
+    {
+      "uri": "/club/media/",
+      "source": "public/club/media/index.html",
+      "title": "Галерея",
+      "longtitle": "Галерея ZUBR GYM — фотографии зала в Гродно",
+      "description": "Фотографии ZUBR GYM в Гродно: тренировочное пространство, оборудование и занятия по тайскому боксу и кикбоксингу. Посмотрите зал перед первым визитом."
+    },
+    {
+      "uri": "/directions/kickboxing/",
+      "source": "public/directions/kickboxing/index.html",
+      "title": "Кикбоксинг",
+      "longtitle": "Кикбоксинг в Гродно — тренировки для детей и взрослых | ZUBR GYM",
+      "description": "Тренировки по кикбоксингу в ZUBR GYM, Гродно. Группы для детей, подростков и взрослых, персональные занятия. Первая тренировка бесплатно. Ул. Репина, 38."
+    },
+    {
+      "uri": "/directions/muay-thai/",
+      "source": "public/directions/muay-thai/index.html",
+      "title": "Тайский бокс",
+      "longtitle": "Тайский бокс в Гродно — тренировки для детей и взрослых | ZUBR GYM",
+      "description": "Тренировки по тайскому боксу в ZUBR GYM, Гродно. Группы для детей, подростков и взрослых, персональные занятия. Первая тренировка бесплатно. Ул. Репина, 38."
+    },
+    {
+      "uri": "/for/amateurs/",
+      "source": "public/for/amateurs/index.html",
+      "title": "Любителям и профи",
+      "longtitle": "Тайский бокс и кикбоксинг для опытных в Гродно — ZUBR GYM",
+      "description": "Тайский бокс и кикбоксинг для любителей и спортсменов с опытом в Гродно. Работа над техникой, групповые и персональные занятия в ZUBR GYM."
+    },
+    {
+      "uri": "/for/beginners-30-plus/",
+      "source": "public/for/beginners-30-plus/index.html",
+      "title": "Взрослым новичкам",
+      "longtitle": "Единоборства для начинающих взрослых в Гродно — ZUBR GYM",
+      "description": "Тайский бокс и кикбоксинг для начинающих взрослых в Гродно. Как начать без опыта, выбрать группу и подготовиться к первой тренировке в ZUBR GYM."
+    },
+    {
+      "uri": "/for/kids/",
+      "source": "public/for/kids/index.html",
+      "title": "Детям и подросткам",
+      "longtitle": "Тайский бокс и кикбоксинг для детей в Гродно — ZUBR GYM",
+      "description": "Тайский бокс и кикбоксинг для детей 5–10 лет и подростков 11–17 лет в Гродно. Группы, подготовка к первому занятию и ответы родителям в ZUBR GYM."
+    },
+    {
+      "uri": "/for/women/",
+      "source": "public/for/women/index.html",
+      "title": "Женщинам и девушкам",
+      "longtitle": "Тайский бокс и кикбоксинг для женщин в Гродно — ZUBR GYM",
+      "description": "Тайский бокс и кикбоксинг для женщин и девушек в Гродно. Начните с нуля или вернитесь к тренировкам в ZUBR GYM. Первое занятие бесплатно."
+    },
+    {
+      "uri": "/info/blog/",
+      "source": "public/info/blog/index.html",
+      "title": "Блог",
+      "longtitle": "Блог о тренировках в Гродно — ZUBR GYM",
+      "description": "Материалы ZUBR GYM: как подготовиться к первой тренировке, выбрать единоборство и формат занятий."
+    },
+    {
+      "uri": "/info/contacts/",
+      "source": "public/info/contacts/index.html",
+      "title": "Контакты",
+      "longtitle": "Контакты ZUBR GYM — телефон, адрес и карта в Гродно",
+      "description": "Контакты ZUBR GYM в Гродно: +375 29 580-51-48, Instagram @zubr.gym, ул. Репина, 38. Время работы, карта и маршрут до зала."
+    },
+    {
+      "uri": "/info/faq/",
+      "source": "public/info/faq/index.html",
+      "title": "Вопросы и ответы",
+      "longtitle": "Вопросы и ответы о тренировках — ZUBR GYM, Гродно",
+      "description": "Ответы на вопросы о тренировках в ZUBR GYM: первый визит, занятия без опыта, детские группы, экипировка, стоимость и расписание тайского бокса и кикбоксинга."
+    },
+    {
+      "uri": "/info/prices/",
+      "source": "public/info/prices/index.html",
+      "title": "Цены",
+      "longtitle": "Цены на тайский бокс и кикбоксинг в Гродно — ZUBR GYM",
+      "description": "Цены ZUBR GYM в Гродно: 12 групповых занятий для детей — 90 BYN, подростков — 100 BYN, взрослых — 110 BYN. Персональные тренировки — по договорённости."
+    },
+    {
+      "uri": "/info/schedule/",
+      "source": "public/info/schedule/index.html",
+      "title": "Расписание",
+      "longtitle": "Расписание тайского бокса и кикбоксинга в Гродно — ZUBR GYM",
+      "description": "Расписание тренировок ZUBR GYM в Гродно: тайский бокс и кикбоксинг. Выберите направление и тренера, узнайте дни, время и группу занятий."
+    },
+    {
+      "uri": "/club/coaches/andrey-gunda/",
+      "source": "public/club/coaches/andrey-gunda/index.html",
+      "title": "Андрей Гунда",
+      "longtitle": "Андрей Гунда — тренер ZUBR GYM в Гродно",
+      "description": "Андрей Гунда — тренер ZUBR GYM в Гродно. Тренерский стаж — 15+ лет. Информация о занятиях, подборе группы и первом посещении клуба."
+    },
+    {
+      "uri": "/club/coaches/andrey-parkhomik/",
+      "source": "public/club/coaches/andrey-parkhomik/index.html",
+      "title": "Андрей Пархомик",
+      "longtitle": "Андрей Пархомик — тренер ZUBR GYM в Гродно",
+      "description": "Андрей Пархомик — тренер по тайскому боксу в Гродно | ZUBR GYM. Более 20 лет тренерского стажа, КМС по боксу и кикбоксингу, тренер международной квалификации."
+    },
+    {
+      "uri": "/club/coaches/artem-dzhabaryan/",
+      "source": "public/club/coaches/artem-dzhabaryan/index.html",
+      "title": "Артём Джабарян",
+      "longtitle": "Артём Джабарян — тренер ZUBR GYM в Гродно",
+      "description": "Артём Джабарян — тренер ZUBR GYM в Гродно. Тренерский стаж — 10+ лет. Информация о занятиях, подборе группы и первом посещении клуба."
+    },
+    {
+      "uri": "/club/coaches/pavel-apanasenok/",
+      "source": "public/club/coaches/pavel-apanasenok/index.html",
+      "title": "Павел Апанасенок",
+      "longtitle": "Павел Апанасенок — тренер ZUBR GYM в Гродно",
+      "description": "Павел Апанасенок — тренер ZUBR GYM в Гродно. Тренерский стаж — 8+ лет. Информация о занятиях, подборе группы и первом посещении клуба."
+    },
+    {
+      "uri": "/info/blog/gruppa-ili-personalno/",
+      "source": "public/info/blog/gruppa-ili-personalno/index.html",
+      "title": "Группа или персональные занятия: какой формат вам удобнее",
+      "longtitle": "Группа или персональные занятия: какой формат вам удобнее — ZUBR GYM",
+      "description": "Групповые и персональные тренировки по единоборствам: как выбрать формат по задачам, опыту и времени. Материал ZUBR GYM."
+    },
+    {
+      "uri": "/info/blog/pervaya-trenirovka/",
+      "source": "public/info/blog/pervaya-trenirovka/index.html",
+      "title": "Первая тренировка: как прийти без лишней суеты",
+      "longtitle": "Первая тренировка: как прийти без лишней суеты — ZUBR GYM",
+      "description": "Как подготовиться к первой тренировке по тайскому боксу или кикбоксингу в ZUBR GYM: группа, форма, экипировка и знакомство с тренером."
+    },
+    {
+      "uri": "/info/blog/tajskij-boks-ili-kikboksing/",
+      "source": "public/info/blog/tajskij-boks-ili-kikboksing/index.html",
+      "title": "Тайский бокс или кикбоксинг: что выбрать для старта",
+      "longtitle": "Тайский бокс или кикбоксинг: что выбрать для старта — ZUBR GYM",
+      "description": "Сравниваем тайский бокс и кикбоксинг для начинающих: техника, дистанция, формат занятий и выбор направления в ZUBR GYM в Гродно."
+    }
+  ]
+}

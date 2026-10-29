@@ -1,0 +1,37 @@
+<section class="section" aria-label="Материалы блога">
+	<div class="container blog-results">
+		<div class="blog-grid">
+			[[!pdoPage?
+				&element=`pdoResources`
+				&parents=`[[*id]]`
+				&depth=`0`
+				&limit=`[[++zubr_blog_page_size]]`
+				&sortby=`{"menuindex":"ASC","id":"ASC"}`
+				&where=`{"template":25,"class_key":"MODX\\Revolution\\modDocument","context_key":"web"}`
+				&showHidden=`1`
+				&showUnsearchable=`1`
+				&includeTVs=`page_heading,page_intro,article_image,article_image_alt,article_category`
+				&tvPrefix=``
+				&tpl=`articleCard`
+				&pageVarKey=`page`
+				&pageLimit=`5`
+				&strictMode=`1`
+				&setMeta=`0`
+				&scheme=`abs`
+				&tplPage=`blogPage`
+				&tplPageActive=`blogPageActive`
+				&tplPagePrev=`blogPagePrev`
+				&tplPageNext=`blogPageNext`
+				&tplPageFirst=``
+				&tplPageLast=``
+				&tplPagePrevEmpty=``
+				&tplPageNextEmpty=``
+				&tplPageSkip=`blogPageSkip`
+				&tplPageWrapper=`blogPageWrapper`
+				&tplWrapper=`blogRowsWrapper`
+				&wrapIfEmpty=`1`
+			]]
+		</div>
+		[[!+page.nav]]
+	</div>
+</section>

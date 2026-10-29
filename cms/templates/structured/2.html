@@ -1,0 +1,13 @@
+[[$head]]
+[[$header]]
+[[!getImageList? &tvname=`home_blocks` &tpl=`homeHero` &limit=`1` &totalVar=`homeBlocksTotal`]]
+<main id="main">
+	[[$homeDirections]]
+	[[!getImageList? &tvname=`home_blocks` &tpl=`homeGym` &limit=`1` &totalVar=`homeBlocksTotal`]]
+	[[!getImageList? &tvname=`home_blocks` &tpl=`homeGroups` &limit=`1` &totalVar=`homeBlocksTotal`]]
+	[[!getImageList? &tvname=`home_blocks` &tpl=`homeVisit` &limit=`1` &totalVar=`homeBlocksTotal`]]
+	[[$coachesSection? &headingTpl=`coachesHomeHeading` &labelledBy=`trainers-title`]]
+	[[!getImageList? &tvname=`home_blocks` &tpl=`homeFaq` &limit=`1` &totalVar=`homeBlocksTotal`]]
+</main>
+[[$galleryDialog]]
+[[$footer]]

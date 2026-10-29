@@ -1,0 +1,29 @@
+<section class="section trainers-section" id="trainers" aria-labelledby="[[+labelledBy]]">
+	<div class="container">
+		[[$[[+headingTpl]]]]
+		<div class="trainers-track" id="trainers-slider" role="region" aria-roledescription="карусель" aria-label="Тренеры ZUBR GYM" tabindex="0">
+			[[!pdoResources?
+				&parents=`10`
+				&depth=`0`
+				&limit=`0`
+				&sortby=`{"menuindex":"ASC","id":"ASC"}`
+				&where=`{"class_key":"MODX\\Revolution\\modDocument","context_key":"web"}`
+				&includeTVs=`page_heading,coach_photo,coach_photo_alt,coach_experience`
+				&tvPrefix=``
+				&tpl=`coachCard`
+			]]
+		</div>
+		<div class="trainers-dots" role="group" aria-label="Выбор тренера">
+			[[!pdoResources?
+				&parents=`10`
+				&depth=`0`
+				&limit=`0`
+				&sortby=`{"menuindex":"ASC","id":"ASC"}`
+				&where=`{"class_key":"MODX\\Revolution\\modDocument","context_key":"web"}`
+				&includeTVs=`page_heading`
+				&tvPrefix=``
+				&tpl=`coachDot`
+			]]
+		</div>
+	</div>
+</section>

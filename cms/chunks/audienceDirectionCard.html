@@ -1,0 +1,8 @@
+<a class="audience-direction" href="[[~[[+property.resource_id]]? &scheme=`abs`]]">
+	<div>
+		<h3>[[+card_title:default=`[[+property.resource_title]]`:htmlent]]</h3>
+		<p>[[+card_audience_description:default=`[[+card_description]]`:default=`[[+property.resource_description]]`:htmlent]]</p>
+		<span>[[+property.card_action:htmlent]] <svg aria-hidden="true"><use href="#arrow"/></svg></span>
+	</div>
+	<img src="[[+card_image:default=`[[+hero_image]]`:htmlent]]" width="800" height="1200" alt="" loading="lazy">
+</a>

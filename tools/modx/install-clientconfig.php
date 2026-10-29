@@ -1,0 +1,8 @@
+<?php
+if(PHP_SAPI!=='cli')exit(1);
+$root=dirname(__DIR__,2).'/';define('MODX_API_MODE',true);require $root.'public/index.php';$modx->initialize('mgr');$modx->user=$modx->getObject(MODX\Revolution\modUser::class,['username'=>'admin']);
+$signature='clientconfig-2.5.0-pl';$class=MODX\Revolution\Transport\modTransportPackage::class;$package=$modx->getObject($class,['signature'=>$signature]);if($package&&$package->get('installed'))exit("$signature already installed\n");
+$provider=$modx->getObject(MODX\Revolution\Transport\modTransportProvider::class,['name'=>'modx.com']);$response=$provider->request('package','GET',['query'=>'clientconfig','supports'=>'3.2.4','limit'=>10]);$xml=simplexml_load_string((string)$response->getBody());$item=null;foreach($xml->item as $candidate)if((string)$candidate->signature===$signature)$item=$candidate;if(!$item)throw new RuntimeException('Expected stable ClientConfig not found');
+$archive=MODX_CORE_PATH.'packages/'.$signature.'.transport.zip';$data=file_get_contents((string)$item->location);if(!$data||substr($data,0,2)!=='PK')throw new RuntimeException('Invalid ClientConfig archive');file_put_contents($archive,$data);
+if(!$package){$package=$modx->newObject($class);$package->fromArray(['signature'=>$signature,'workspace'=>1,'state'=>1,'package_name'=>'clientconfig'],'',true,true);$package->setPackageVersionData();if(!$package->save())throw new RuntimeException('Register failed');}
+$package->set('source',$signature.'.transport.zip');$package->save();if(!$package->install(['preserve_keys'=>true]))throw new RuntimeException('Installation failed');$modx->cacheManager->refresh();echo "$signature installed\n";

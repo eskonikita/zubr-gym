@@ -1,0 +1,12 @@
+[[$head]]
+[[$header]]
+		<main id="main">
+			<div class="container hall-intro">
+				[[$breadcrumbs]]
+				<h1>[[*page_heading]]</h1>
+				<p>[[*page_intro]]</p>
+			</div>
+			[[$infoCards]]
+			[[!getImageList? &tvname=`info_location` &tpl=`infoLocation` &limit=`1` &processTVs=`0` &totalVar=`infoLocationTotal`]]
+		</main>
+		[[$footer]]

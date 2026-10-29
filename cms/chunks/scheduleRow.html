@@ -1,0 +1,33 @@
+<tr data-schedule-row data-direction="[[+direction:htmlent]]" data-trainer="[[+trainer:htmlent]]" data-group="[[+group:htmlent]]">
+	<td>[[$scheduleDay? &day=`[[+day]]`]]</td>
+	<td>[[+start:htmlent]]–[[+end:htmlent]]</td>
+	<td>
+		[[!pdoResources?
+			&parents=`5`
+			&depth=`0`
+			&where=`{"id":"[[+direction]]"}`
+			&showHidden=`1`
+			&showUnsearchable=`1`
+			&limit=`1`
+			&tpl=`scheduleResourceName`
+			&tplWrapper=`scheduleResourceFallback`
+			&wrapIfEmpty=`1`
+		]]
+	</td>
+	<td>[[!getImageList? &tvname=`schedule_groups` &docid=`[[*id]]` &where=`{"MIGX_id":"[[+group]]"}` &tpl=`scheduleGroupLabel` &emptyTpl=`scheduleResourceFallback` &limit=`1` &totalVar=`scheduleGroupLabelTotal` &processTVs=`0`]]</td>
+	<td>
+		[[!pdoResources?
+			&parents=`10`
+			&depth=`0`
+			&where=`{"id":"[[+trainer]]"}`
+			&showHidden=`1`
+			&showUnsearchable=`1`
+			&limit=`1`
+			&includeTVs=`page_heading`
+			&tvPrefix=``
+			&tpl=`scheduleResourceLink`
+			&tplWrapper=`scheduleResourceFallback`
+			&wrapIfEmpty=`1`
+		]]
+	</td>
+</tr>

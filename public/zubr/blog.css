@@ -14,7 +14,7 @@
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.blog-card:hover img{transform:scale(1.025)}}
 .blog-post .blog-intro h1{max-width:1080px;font-size:clamp(32px,3.5vw,48px);line-height:1.14}
 .blog-intro p.article-category{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--zubr-accent);margin:0 0 16px}
-.blog-article__photo{height:420px;margin:0 0 40px;border-radius:12px;overflow:hidden}
+.blog-article__photo{height:320px;margin:0;border-radius:12px;overflow:hidden}
 .blog-article__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 65%}
 .blog-article__layout{display:grid;grid-template-columns:260px minmax(0,760px);gap:64px;align-items:start}
 .blog-toc{position:sticky;top:116px}
@@ -45,3 +45,16 @@
 .blog-page-gap{display:inline-flex;justify-content:center;min-width:20px;font-size:14px;color:var(--zubr-ink-soft)}
 @media(max-width:767px){.blog-pagination-bar{flex-direction:column;gap:16px;margin-top:24px;padding-top:20px}.blog-pagination{gap:6px}.blog-page-link{min-width:36px;padding-inline:8px}.blog-page-gap{min-width:14px}}
 @media(max-width:399px){.blog-pagination{gap:4px}.blog-page-link{min-width:32px;padding-inline:6px;font-size:13px}.blog-page-gap{min-width:10px}}
+.blog-article__text{display:flow-root}
+.article-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:0 0 20px}
+.article-meta__badge{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:8px 12px;border-radius:4px;color:#fff;font-size:12px;font-weight:600;line-height:1.5}
+.article-meta__badge svg{width:16px;height:16px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.article-category-badge{background:#101112}
+.article-date-badge{background:var(--zubr-accent)}
+.blog-article__text>.blog-article__photo{width:100%;height:320px;margin:0 0 32px}
+@media(max-width:767px){.blog-article__text>.blog-article__photo{float:none;width:100%;max-width:none;height:220px;margin:0 0 24px}}
+.blog-pagination--server{margin-top:32px;padding-top:24px;border-top:1px solid var(--zubr-border);flex-wrap:wrap}
+.blog-pagination--server[hidden]{display:none}
+.blog-card .article-meta{gap:8px;margin-bottom:18px}
+.blog-card .article-meta__badge{padding:6px 9px;font-size:11px;min-height:30px}
+.blog-card .article-meta__badge svg{width:14px;height:14px}

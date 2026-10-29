@@ -1,0 +1,19 @@
+<div class="container">
+	[[$breadcrumbs]]
+	<section class="coach-profile" aria-labelledby="coach-name">
+		<div class="coach-profile__photo">
+			<img src="[[*coach_photo:htmlent]]" width="842" height="1508" alt="[[*coach_photo_alt:htmlent]]" fetchpriority="high">
+		</div>
+		<div class="coach-profile__intro">
+			<p class="coach-profile__role">[[*coach_role]]</p>
+			<h1 id="coach-name">[[*page_heading]]</h1>
+			<p class="coach-profile__lead">[[*page_intro]]</p>
+			<div class="coach-profile__experience">
+				<strong>[[*coach_experience:htmlent]]</strong>
+				<span>лет тренерского<br>стажа</span>
+			</div>
+			<p class="coach-profile__description">[[*coach_description]]</p>
+			<a class="button button-primary coach-profile__call" href="tel:[[++zubr_contact_phone:ZubrPhone]]"><span>Уточнить занятия с тренером</span><svg aria-hidden="true"><use href="#phone"></use></svg></a>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,15 @@
+{
+    "category": 4,
+    "fields": {
+        "seo_title": 1,
+        "seo_description": 2,
+        "seo_image": 3,
+        "seo_index": 4
+    },
+    "html_templates": 20,
+    "robots_resource": 39,
+    "sitemap_resource": 40,
+    "maintenance_resource": 38,
+    "production_host": "zubr-gym.by",
+    "indexing_enabled": true
+}

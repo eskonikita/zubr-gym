@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-14",
+  "method": "WCAG relative luminance calculation",
+  "pairs": [
+    {
+      "name": "white/accent",
+      "ratio": 5.1
+    },
+    {
+      "name": "ink/background",
+      "ratio": 16.72
+    },
+    {
+      "name": "secondary/background",
+      "ratio": 6.36
+    },
+    {
+      "name": "secondary/alt",
+      "ratio": 5.66
+    },
+    {
+      "name": "secondary/dark",
+      "ratio": 9.6
+    },
+    {
+      "name": "control border/surface",
+      "ratio": 4.25
+    }
+  ]
+}

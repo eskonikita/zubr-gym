@@ -1,0 +1,27 @@
+<?php
+/** Rename the shared chunks and centralise the document head without importing static HTML. */
+if(PHP_SAPI!=='cli'||!in_array('--apply',$argv,true))exit("Usage: php tools/modx/consolidate-head.php --apply\n");
+$root=dirname(__DIR__,2).'/';define('MODX_API_MODE',true);require $root.'public/index.php';$modx->initialize('mgr');require_once $root.'cms/elements/TemplateRegistry.php';
+use MODX\Revolution\{modTemplate,modChunk,modResource,modTemplateVarResource,modSnippet,modCategory};
+$registryFile=$root.'cms/template-registry.json';$registry=json_decode(file_get_contents($registryFile),true,512,JSON_THROW_ON_ERROR);
+if(in_array('head',$registry['chunks'],true))throw new RuntimeException('Shared head is already configured');
+$names=['Шапка сайта'=>'header','Подвал сайта'=>'footer','Мобильное меню'=>'mobileMenu','Иконки интерфейса'=>'svgSprite','Запись на тренировку'=>'trainingCta','Хлебные крошки'=>'breadcrumbs','Похожие статьи'=>'relatedArticles','Карточка статьи'=>'articleCard','Квалификация тренера'=>'coachQualification'];
+function renameCalls(string $source,array $names):string{
+    foreach($names as $old=>$new){$source=preg_replace('~\[\[\$'.preg_quote($old,'~').'(?=\s*(?:\?|\]\]))~u','[[$'.$new,$source);$source=str_replace(['&tpl=`'.$old.'`',"getChunk('".$old."'",'getChunk("'.$old.'"'],['&tpl=`'.$new.'`',"getChunk('".$new."'",'getChunk("'.$new.'"'],$source);}return $source;
+}
+$backup=['registry'=>$registry];foreach([modTemplate::class,modChunk::class,modResource::class,modTemplateVarResource::class,modSnippet::class] as $class)foreach($modx->getCollection($class) as $o)$backup[$class][]=$o->toArray();file_put_contents($root.'cms/backups/before-shared-head-'.date('Ymd-His').'.json',json_encode($backup,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
+$button=null;$heads=[];
+foreach($modx->getCollection(modTemplate::class,Zubr\Site\TemplateRegistry::criteria()) as $t){$html=$t->get('content');preg_match('~<head>(.*?)</head>~s',$html,$head);if(!$head)throw new RuntimeException('Head missing');$heads[(int)$t->id]=$head[1];preg_match('~<button class="scroll-to-top".*?</button>~s',$html,$match);if(!$match)throw new RuntimeException('Scroll button missing');if($button!==null&&$button!==$match[0])throw new RuntimeException('Scroll buttons differ');$button=$match[0];}
+// Preserve original assets and CSP for a before/after integration check.
+file_put_contents($root.'.tmp-head-baseline.json',json_encode($heads,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
+foreach($names as $old=>$new){$chunk=$modx->getObject(modChunk::class,['name'=>$old]);if(!$chunk)throw new RuntimeException('Chunk missing: '.$old);$chunk->set('name',$new);$html=renameCalls($chunk->get('snippet'),$names);if($new==='footer')$html=rtrim($html)."\n".$button."\n";$chunk->set('snippet',$html);if(!$chunk->save())throw new RuntimeException('Chunk save failed');}
+$category=$modx->getObject(modCategory::class,['category'=>'Общие']);$head=$modx->newObject(modChunk::class);$head->fromArray(['name'=>'head','category'=>$category->get('id'),'description'=>'Общий документ: doctype, html, head и открытие body. Условия для типов страниц — в PageHead.','snippet'=>file_get_contents($root.'cms/chunks/head.html'),'static'=>0]);if(!$head->save())throw new RuntimeException('Head chunk save failed');
+$snippet=$modx->getObject(modSnippet::class,['name'=>'PageHead']);if(!$snippet)$snippet=$modx->newObject(modSnippet::class);$snippet->fromArray(['name'=>'PageHead','category'=>$category->get('id'),'description'=>'Различия head по типу страницы: стили, скрипты, CSP, preload и класс body.','snippet'=>"require_once MODX_BASE_PATH . '../cms/elements/PageHead.php';\nreturn (new \\Zubr\\Site\\PageHead(\$modx))->render((string)(\$scriptProperties['part'] ?? ''));\n"]);if(!$snippet->save())throw new RuntimeException('PageHead snippet save failed');
+foreach($modx->getCollection(modTemplate::class,Zubr\Site\TemplateRegistry::criteria()) as $t){$html=renameCalls($t->get('content'),$names);$html=preg_replace('~\A\s*<!doctype html>\s*<html\b[^>]*>\s*<head>.*?</head>\s*<body\b[^>]*>~si','[[$head]]',$html,1,$count);if($count!==1)throw new RuntimeException('Opening document not found');$html=preg_replace('~^[\t ]*<button class="scroll-to-top".*?</button>\s*~ms','',$html);$t->set('content',$html);if(!$t->save())throw new RuntimeException('Template save failed');}
+foreach($modx->getCollection(modResource::class,['context_key'=>'web']) as $r){$html=renameCalls($r->get('content'),$names);if($html!==$r->get('content')){$r->set('content',$html);$r->save();}}
+foreach($modx->getCollection(modTemplateVarResource::class) as $tv){$value=renameCalls($tv->get('value'),$names);if($value!==$tv->get('value')){$tv->set('value',$value);$tv->save();}}
+foreach($modx->getCollection(modSnippet::class) as $s){$value=renameCalls($s->get('snippet'),$names);if($value!==$s->get('snippet')){$s->set('snippet',$value);$s->save();}}
+$registry['chunks']=array_merge(array_values($names),['head']);$registry['shared_head']=true;file_put_contents($registryFile,json_encode($registry,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
+// Rename the exported chunk files in place too; check explicit paths remain in cms/chunks.
+foreach($names as $old=>$new){$from=$root.'cms/chunks/'.$old.'.html';$to=$root.'cms/chunks/'.$new.'.html';if(is_file($from)&&!rename($from,$to))throw new RuntimeException('Chunk export rename failed');}
+$modx->cacheManager->refresh();echo "Renamed 9 chunks, added head, consolidated 20 document heads and moved scroll button to footer.\n";

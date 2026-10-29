@@ -1,0 +1,24 @@
+<section class="section first-visit" id="first-visit" aria-labelledby="visit-title">
+	<div class="container visit-layout">
+		<div class="visit-intro">
+			<h2 id="visit-title">[[*visit_heading]]</h2>
+			<p class="visit-desktop-copy">[[*visit_description:htmlent]]</p>
+			<p class="visit-mobile-copy">[[*visit_mobile_description:default=`[[*visit_description]]`:htmlent]]</p>
+			<div class="visit-actions">
+				<a class="button button-primary" href="tel:[[++zubr_contact_phone:ZubrPhone]]">[[*visit_phone_label:htmlent]]<svg aria-hidden="true"><use href="#phone"/></svg></a>
+				<a class="button visit-message" href="https://www.instagram.com/[[++zubr_contact_instagram:htmlent]]/" target="_blank" rel="noopener noreferrer">[[*visit_instagram_label:htmlent]]<svg aria-hidden="true"><use href="#instagram"/></svg></a>
+			</div>
+			<a class="visit-address" href="[[++zubr_contact_map_url:htmlent]]" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#pin"/></svg><span>[[++zubr_contact_address:htmlent]]</span><svg aria-hidden="true"><use href="#arrow"/></svg></a>
+		</div>
+		<ol class="visit-steps">
+			[[!getImageList?
+				&tvname=`visit_steps`
+				&tpl=`firstVisitStep`
+				&limit=`0`
+				&totalVar=`visitStepsTotal`
+				&processTVs=`0`
+			]]
+		</ol>
+		<a class="visit-address visit-mobile-address" href="[[++zubr_contact_map_url:htmlent]]" target="_blank" rel="noopener noreferrer" aria-label="[[++zubr_contact_address:ZubrStreet:htmlent]] — открыть на карте в новой вкладке"><svg aria-hidden="true"><use href="#pin"/></svg><span>[[++zubr_contact_address:ZubrStreet:htmlent]]</span><span class="visit-map-label">На карте <svg aria-hidden="true"><use href="#arrow"/></svg></span></a>
+	</div>
+</section>

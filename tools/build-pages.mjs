@@ -4,7 +4,9 @@ import path from 'node:path';
 const source = path.resolve('public');
 const destination = path.resolve('dist');
 const base = '/' + (process.env.PAGES_BASE_PATH || 'zubr-gym').replace(/^\/+|\/+$/g, '') + '/';
-const entries = await fs.readdir(source);
+// GitHub Pages stays a static preview. Never export CMS runtime or local credentials.
+const cmsDirectories = new Set(['core', 'manager', 'connectors', 'setup']);
+const entries = (await fs.readdir(source)).filter(name => !cmsDirectories.has(name) && !name.endsWith('.php') && !name.startsWith('.')); 
 const escaped = entries.map(name => name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
 const rootPath = new RegExp('(["\'`(=])/(?!/)(' + escaped.join('|') + ')(?=[/"\'`?#)\\s])', 'g');
 
@@ -13,6 +15,8 @@ async function copy(directory, output) {
   for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
     const from = path.join(directory, entry.name);
     const to = path.join(output, entry.name);
+    const relative = path.relative(source, from).replaceAll('\\', '/');
+    if ((directory === source && cmsDirectories.has(entry.name)) || relative === 'assets/components' || entry.name.endsWith('.php') || entry.name.startsWith('.')) continue;
     if (entry.isDirectory()) await copy(from, to);
     else if (/\.(html|css|js|json|webmanifest|xml|txt|svg)$/i.test(entry.name)) {
       let text = await fs.readFile(from, 'utf8');

@@ -1,0 +1,19 @@
+<section class="cookie-banner" aria-labelledby="cookie-banner-title" data-cookie-banner hidden>
+	<div class="cookie-banner__copy">
+		<h2 id="cookie-banner-title">Настройки cookie</h2>
+		<p>Cookie помогают сайту работать и сохранять ваши настройки. Вы можете отдельно разрешить карту и аналитику посещаемости или оставить только необходимые cookie. <a href="[[~[[++zubr_cookie_policy_resource]]? &scheme=`abs`]]">Подробнее</a>.</p>
+	</div>
+	<div class="cookie-buttons">
+		<button class="cookie-button" type="button" data-cookie-accept>Принять все</button>
+		<button class="cookie-button" type="button" data-cookie-reject>Только необходимые</button>
+		<button class="cookie-button cookie-button--outline" type="button" data-cookie-open>Настроить</button>
+	</div>
+</section>
+<dialog class="cookie-dialog" aria-labelledby="cookie-settings-title" data-cookie-dialog>
+	<div class="cookie-dialog__heading">
+		<h2 id="cookie-settings-title">Настройки cookie</h2>
+		<button class="cookie-close" type="button" aria-label="Закрыть настройки cookie" data-cookie-close><svg aria-hidden="true"><use href="#close"/></svg></button>
+	</div>
+	<p class="cookie-dialog__intro">Вы можете изменить выбор в любой момент. <a href="[[~[[++zubr_cookie_policy_resource]]? &scheme=`abs`]]">Подробнее в политике cookie</a>.</p>
+	[[$cookiePreferences]]
+</dialog>

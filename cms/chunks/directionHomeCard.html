@@ -1,0 +1,10 @@
+<article class="directions__card directions__card--[[+property.resource_alias:is=`muay-thai`:then=`muay`:else=`kick`]]" aria-labelledby="direction-[[+property.resource_id]]-title">
+	<div class="directions__content">
+		<h3 class="directions__name" id="direction-[[+property.resource_id]]-title">[[+card_title:default=`[[+property.resource_title]]`:strtoupper:htmlent]]</h3>
+		<p class="directions__description">[[+card_home_description:default=`[[+card_description]]`:htmlent:nl2br]]</p>
+		<a class="button button-primary directions__button" href="[[~[[+property.resource_id]]? &scheme=`abs`]]">Подробнее<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+	</div>
+	<div class="directions__art" aria-hidden="true">
+		<img class="directions__image" src="[[+card_image:default=`[[+hero_image]]`:htmlent]]" [[+card_image_small:notempty=`srcset="[[+card_image_small:htmlent]] 480w, [[+card_image:default=`[[+hero_image]]`:htmlent]] 800w"`]] sizes="(max-width: 479px) 42vw, (max-width: 1023px) 38vw, 280px" width="800" height="1200" alt="" loading="lazy" decoding="async">
+	</div>
+</article>

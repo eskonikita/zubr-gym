@@ -1,0 +1,32 @@
+{
+    "package": "clientconfig-2.5.0-pl",
+    "groups": [
+        "Контакты",
+        "Карта и время работы",
+        "Реквизиты организации"
+    ],
+    "keys": [
+        "zubr_contact_phone",
+        "zubr_contact_email",
+        "zubr_contact_instagram",
+        "zubr_contact_address",
+        "zubr_contact_domain",
+        "zubr_contact_map_url",
+        "zubr_contact_map_embed",
+        "zubr_contact_route_url",
+        "zubr_contact_hours_weekdays",
+        "zubr_contact_hours_saturday",
+        "zubr_contact_hours_sunday",
+        "zubr_org_name",
+        "zubr_org_short_name",
+        "zubr_org_unp",
+        "zubr_org_legal_address",
+        "zubr_org_director",
+        "zubr_org_director_basis",
+        "zubr_org_iban",
+        "zubr_org_currency",
+        "zubr_org_bank",
+        "zubr_org_bic"
+    ],
+    "templates": 20
+}

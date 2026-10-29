@@ -1,0 +1,14 @@
+<section class="section gym-section" id="gym" aria-labelledby="gym-title">
+	<div class="container">
+		<div class="gym-heading">
+			<h2 id="gym-title">[[+gym_heading]]</h2>
+			<div class="gym-slider-controls">
+				<button class="gym-slider-arrow" type="button" data-gym-prev aria-label="Предыдущие фотографии зала" aria-controls="gym-slider"><svg aria-hidden="true"><use href="#arrow"></use></svg></button>
+				<button class="gym-slider-arrow" type="button" data-gym-next aria-label="Следующие фотографии зала" aria-controls="gym-slider"><svg aria-hidden="true"><use href="#arrow"></use></svg></button>
+			</div>
+		</div>
+	</div>
+	<div class="gym-slider-track" id="gym-slider" role="region" aria-roledescription="карусель" aria-label="Фотографии зала" tabindex="0">
+		[[!getImageList? &tvname=`gallery_photos` &docid=`13` &tpl=`homeGymSlide` &limit=`0` &totalVar=`homeGymTotal`]]
+	</div>
+</section>

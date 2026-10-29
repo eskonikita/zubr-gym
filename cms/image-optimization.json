@@ -1,0 +1,38 @@
+[
+  {
+    "source": "zubr/images/bison-hero.png",
+    "target": "zubr/images/bison-hero.webp",
+    "before": 2532193,
+    "after": 197374,
+    "width": 859,
+    "height": 900,
+    "quality": 82
+  },
+  {
+    "source": "zubr/images/belarus-kickboxing-federation-transparent.png",
+    "target": "zubr/images/belarus-kickboxing-federation-transparent.webp",
+    "before": 933340,
+    "after": 71808,
+    "width": 640,
+    "height": 438,
+    "quality": 90
+  },
+  {
+    "source": "zubr/images/zubr-wordmark.png",
+    "target": "zubr/images/zubr-wordmark.png",
+    "before": 353948,
+    "after": 58871,
+    "width": 832,
+    "height": 281,
+    "quality": null
+  },
+  {
+    "source": "zubr/images/coaches/andrey-parkhomik.webp",
+    "target": "zubr/images/coaches/andrey-parkhomik.webp",
+    "before": 214532,
+    "after": 184410,
+    "width": 1440,
+    "height": 2560,
+    "quality": 88
+  }
+]

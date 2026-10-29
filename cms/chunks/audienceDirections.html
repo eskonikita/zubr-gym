@@ -1,0 +1,21 @@
+<section class="section audience-directions" aria-labelledby="audience-directions-title">
+	<div class="container">
+		<div class="audience-directions__heading">
+			<h2 id="audience-directions-title">[[+directions_heading]]</h2>
+			<a class="discipline-text-link" href="[[~33? &scheme=`abs`]]">[[+directions_link_label:htmlent]] <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+		</div>
+		<div class="audience-directions__grid">
+			[[!pdoResources?
+				&parents=`5`
+				&depth=`0`
+				&limit=`0`
+				&sortby=`{"menuindex":"ASC","id":"ASC"}`
+				&where=`{"template":14,"class_key":"MODX\\Revolution\\modDocument","context_key":"web"}`
+				&showHidden=`1`
+				&showUnsearchable=`1`
+				&tpl=`audienceDirectionResource`
+				&cardAction=`[[+directions_card_label]]`
+			]]
+		</div>
+	</div>
+</section>

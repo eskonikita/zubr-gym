@@ -1,0 +1,213 @@
+{
+    "resources": [
+        {
+            "id": 1,
+            "uri": "/",
+            "template": 2,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/index.html"
+        },
+        {
+            "id": 2,
+            "uri": "/404/",
+            "template": 3,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "cms/templates/error-404.html"
+        },
+        {
+            "id": 3,
+            "uri": "/club/",
+            "template": 4,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/club/index.html"
+        },
+        {
+            "id": 5,
+            "uri": "/directions/",
+            "template": 5,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/directions/index.html"
+        },
+        {
+            "id": 6,
+            "uri": "/for/",
+            "template": 6,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/for/index.html"
+        },
+        {
+            "id": 7,
+            "uri": "/info/",
+            "template": 7,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/info/index.html"
+        },
+        {
+            "id": 8,
+            "uri": "/privacy-policy/",
+            "template": 8,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/privacy-policy/index.html"
+        },
+        {
+            "id": 9,
+            "uri": "/terms-of-use/",
+            "template": 8,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/terms-of-use/index.html"
+        },
+        {
+            "id": 10,
+            "uri": "/club/coaches/",
+            "template": 10,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/club/coaches/index.html"
+        },
+        {
+            "id": 11,
+            "uri": "/club/first-visit/",
+            "template": 11,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/club/first-visit/index.html"
+        },
+        {
+            "id": 13,
+            "uri": "/club/media/",
+            "template": 12,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/club/media/index.html"
+        },
+        {
+            "id": 14,
+            "uri": "/club/coaches/andrey-gunda/",
+            "template": 13,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/club/coaches/andrey-gunda/index.html",
+            "parent": 10
+        },
+        {
+            "id": 15,
+            "uri": "/club/coaches/andrey-parkhomik/",
+            "template": 13,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/club/coaches/andrey-parkhomik/index.html",
+            "parent": 10
+        },
+        {
+            "id": 16,
+            "uri": "/club/coaches/artem-dzhabaryan/",
+            "template": 13,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/club/coaches/artem-dzhabaryan/index.html",
+            "parent": 10
+        },
+        {
+            "id": 17,
+            "uri": "/club/coaches/pavel-apanasenok/",
+            "template": 13,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/club/coaches/pavel-apanasenok/index.html",
+            "parent": 10
+        },
+        {
+            "id": 20,
+            "uri": "/directions/kickboxing/",
+            "template": 14,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/directions/kickboxing/index.html"
+        },
+        {
+            "id": 21,
+            "uri": "/directions/muay-thai/",
+            "template": 14,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/directions/muay-thai/index.html"
+        },
+        {
+            "id": 22,
+            "uri": "/for/amateurs/",
+            "template": 16,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/for/amateurs/index.html"
+        },
+        {
+            "id": 23,
+            "uri": "/for/beginners-30-plus/",
+            "template": 16,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/for/beginners-30-plus/index.html"
+        },
+        {
+            "id": 24,
+            "uri": "/for/kids/",
+            "template": 16,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/for/kids/index.html"
+        },
+        {
+            "id": 25,
+            "uri": "/for/women/",
+            "template": 16,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/for/women/index.html"
+        },
+        {
+            "id": 26,
+            "uri": "/info/blog/",
+            "template": 20,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/info/blog/index.html"
+        },
+        {
+            "id": 27,
+            "uri": "/info/contacts/",
+            "template": 21,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/info/contacts/index.html"
+        },
+        {
+            "id": 29,
+            "uri": "/info/faq/",
+            "template": 22,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/info/faq/index.html"
+        },
+        {
+            "id": 31,
+            "uri": "/info/prices/",
+            "template": 23,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/info/prices/index.html"
+        },
+        {
+            "id": 33,
+            "uri": "/info/schedule/",
+            "template": 24,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/info/schedule/index.html"
+        },
+        {
+            "id": 35,
+            "uri": "/info/blog/gruppa-ili-personalno/",
+            "template": 25,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/info/blog/gruppa-ili-personalno/index.html"
+        },
+        {
+            "id": 36,
+            "uri": "/info/blog/pervaya-trenirovka/",
+            "template": 25,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/info/blog/pervaya-trenirovka/index.html"
+        },
+        {
+            "id": 37,
+            "uri": "/info/blog/tajskij-boks-ili-kikboksing/",
+            "template": 25,
+            "class": "MODX\\Revolution\\modDocument",
+            "source": "public/info/blog/tajskij-boks-ili-kikboksing/index.html"
+        }
+    ],
+    "count": 29,
+    "mode": "chunks-and-tvs"
+}

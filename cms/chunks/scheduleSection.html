@@ -1,0 +1,79 @@
+<section class="section schedule-section" aria-label="Расписание занятий">
+	<div class="container">
+		<div class="schedule-filters">
+			<div class="schedule-filter-row">
+				<h2 id="direction-filter-title">Направление</h2>
+				<div class="schedule-filter-buttons" role="group" aria-labelledby="direction-filter-title" data-filter-group="direction">
+					<button class="schedule-filter" type="button" data-filter-value="all" aria-pressed="true" aria-controls="schedule-table">Все направления</button>
+					[[!pdoResources?
+						&parents=`5`
+						&depth=`0`
+						&limit=`0`
+						&sortby=`{"menuindex":"ASC","id":"ASC"}`
+						&where=`{"template":14,"class_key":"MODX\\Revolution\\modDocument","context_key":"web"}`
+						&showHidden=`1`
+						&showUnsearchable=`1`
+						&tpl=`scheduleResourceFilter`
+					]]
+				</div>
+			</div>
+			<div class="schedule-filter-row">
+				<h2 id="trainer-filter-title">Тренер</h2>
+				<div class="schedule-filter-buttons" role="group" aria-labelledby="trainer-filter-title" data-filter-group="trainer">
+					<button class="schedule-filter" type="button" data-filter-value="all" aria-pressed="true" aria-controls="schedule-table">Все тренеры</button>
+					[[!pdoResources?
+						&parents=`10`
+						&depth=`0`
+						&limit=`0`
+						&sortby=`{"menuindex":"ASC","id":"ASC"}`
+						&where=`{"template":13,"class_key":"MODX\\Revolution\\modDocument","context_key":"web"}`
+						&showHidden=`1`
+						&showUnsearchable=`1`
+						&includeTVs=`page_heading`
+						&tvPrefix=``
+						&tpl=`scheduleResourceFilter`
+					]]
+				</div>
+			</div>
+			<div class="schedule-filter-row">
+				<h2 id="group-filter-title">Группа</h2>
+				<div class="schedule-filter-buttons" role="group" aria-labelledby="group-filter-title" data-filter-group="group">
+					<button class="schedule-filter" type="button" data-filter-value="all" aria-pressed="true" aria-controls="schedule-table">Все группы</button>
+					[[!getImageList? &tvname=`schedule_groups` &tpl=`scheduleGroupFilter` &limit=`0` &totalVar=`scheduleGroupsTotal` &processTVs=`0`]]
+				</div>
+			</div>
+			<button class="schedule-reset" type="button" data-schedule-reset hidden>Сбросить фильтры<svg aria-hidden="true"><use href="#close"/></svg></button>
+		</div>
+		<div class="schedule-table-scroll" role="region" aria-label="Таблица расписания, прокручивается по горизонтали" tabindex="0">
+			<table id="schedule-table">
+				<caption class="schedule-visually-hidden">Дни, время, направление, группа и тренер занятий ZUBR GYM</caption>
+				<thead>
+					<tr>
+						<th scope="col">День</th>
+						<th scope="col">Время</th>
+						<th scope="col">Направление</th>
+						<th scope="col">Группа</th>
+						<th scope="col">Тренер</th>
+					</tr>
+				</thead>
+				<tbody data-schedule-body>
+				[[!getImageList?
+					&tvname=`schedule_lessons`
+					&tpl=`scheduleRow`
+					&where=`{"active":"1"}`
+					&sort=`[{"sortby":"day","sortdir":"ASC","sortmode":"numeric"},{"sortby":"start","sortdir":"ASC","sortmode":"string"}]`
+					&limit=`0`
+					&totalVar=`scheduleLessonsTotal`
+					&processTVs=`0`
+				]]
+			</tbody>
+			</table>
+		</div>
+		<div class="schedule-empty" data-schedule-empty>
+			<h3>Уточните время занятий</h3>
+			<p>Позвоните в ZUBR GYM — подскажем актуальное расписание вашей группы.</p>
+			<a href="tel:[[++zubr_contact_phone:ZubrPhone]]">[[++zubr_contact_phone:htmlent]]<svg aria-hidden="true"><use href="#phone"/></svg></a>
+		</div>
+		<p class="schedule-status schedule-visually-hidden" role="status" aria-live="polite" data-schedule-status></p>
+	</div>
+</section>

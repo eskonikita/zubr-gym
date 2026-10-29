@@ -17,3 +17,26 @@ manager/config.core.php
 connectors/config.core.php
 *.sql
 *.sql.gz
+
+# Local MODX installation and credentials
+cms/core/
+cms/private/
+cms/backups/
+public/config.core.php
+public/setup/
+
+public/core/cache/
+public/core/logs/
+public/core/packages/
+public/core/export/
+public/core/import/
+public/core/config/config.inc.php
+public/manager/config.core.php
+public/connectors/config.core.php
+.osp/
+.superdesign/
+reference/
+reports/
+artifacts/
+**/__pycache__/
+*.pyc

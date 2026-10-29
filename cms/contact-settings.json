@@ -1,0 +1,31 @@
+{
+  "groups": [
+    {"label":"Контакты", "description":"Общие контакты для шапки, подвала, мобильного меню, кнопок и страниц сайта.", "fields":[
+      {"key":"zubr_contact_phone", "label":"Телефон", "value":"+375 29 580-51-48", "description":"Укажите с кодом страны. Этот же номер автоматически используется в ссылках для звонка."},
+      {"key":"zubr_contact_email", "label":"Электронная почта", "xtype":"email", "value":"bfkitb.grodno@gmail.com"},
+      {"key":"zubr_contact_instagram", "label":"Instagram — имя профиля", "value":"zubr.gym", "description":"Без @ и без адреса сайта. Ссылки и подписи формируются автоматически."},
+      {"key":"zubr_contact_address", "label":"Адрес зала", "value":"Гродно, ул. Репина, 38", "description":"Полный адрес: город, улица, дом. Короткий адрес в hero формируется автоматически."},
+      {"key":"zubr_contact_domain", "label":"Домен в контактных данных", "value":"zubr-gym.by", "description":"Название домена в подвале и документах. Технический основной домен SEO настраивается отдельно."}
+    ]},
+    {"label":"Карта и время работы", "description":"Карта, маршрут и часы работы на странице контактов.", "fields":[
+      {"key":"zubr_contact_map_url", "label":"Ссылка на Яндекс Карты", "value":"https://yandex.by/maps/org/zubr_gym/114715839953/"},
+      {"key":"zubr_contact_map_embed", "label":"Адрес встроенной карты", "value":"https://yandex.by/map-widget/v1/?ll=23.792599%2C53.661740&mode=search&oid=114715839953&ol=biz&z=17.03", "description":"Только URL из src iframe, без HTML. Карта должна оставаться на разрешённом домене Яндекса."},
+      {"key":"zubr_contact_route_url", "label":"Ссылка «Построить маршрут»", "value":"https://yandex.by/maps/?rtext=~53.661740%2C23.792599&rtt=auto"},
+      {"key":"zubr_contact_hours_weekdays", "label":"Понедельник — пятница", "value":"09:00–22:00"},
+      {"key":"zubr_contact_hours_saturday", "label":"Суббота", "value":"10:00–18:00"},
+      {"key":"zubr_contact_hours_sunday", "label":"Воскресенье", "value":"Выходной"}
+    ]},
+    {"label":"Реквизиты организации", "description":"Данные организации для подвала, контактов и юридических документов. Юридический адрес отличается от адреса зала.", "fields":[
+      {"key":"zubr_org_name", "label":"Полное наименование", "xtype":"textarea", "value":"Гродненское городское отделение общественной организации «Белорусская федерация кикбоксинга и таиландского бокса»"},
+      {"key":"zubr_org_short_name", "label":"Краткое наименование", "value":"ГГО ОО «БФКиТБ»"},
+      {"key":"zubr_org_unp", "label":"УНП", "value":"500856838"},
+      {"key":"zubr_org_legal_address", "label":"Юридический адрес", "value":"г. Гродно, ул. Зана, 12"},
+      {"key":"zubr_org_director", "label":"Руководитель — ФИО", "value":"Лукьянчиков Михаил Александрович"},
+      {"key":"zubr_org_director_basis", "label":"Основание полномочий", "value":"действует на основании Устава"},
+      {"key":"zubr_org_iban", "label":"Расчётный счёт (IBAN)", "value":"BY89AKBB30150000055360000000"},
+      {"key":"zubr_org_currency", "label":"Валюта счёта", "value":"BYN", "description":"Валюта банковского счёта. Не меняет валюту карточек абонементов."},
+      {"key":"zubr_org_bank", "label":"Банк", "value":"ОАО «АСБ Беларусбанк», г. Минск"},
+      {"key":"zubr_org_bic", "label":"Код банка (БИК)", "value":"AKBBBY2X"}
+    ]}
+  ]
+}

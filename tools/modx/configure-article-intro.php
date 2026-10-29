@@ -1,0 +1,6 @@
+<?php
+if(PHP_SAPI!=='cli')exit(1);$root=dirname(__DIR__,2).'/';define('MODX_API_MODE',true);require $root.'public/index.php';$modx->initialize('mgr');
+use MODX\Revolution\{modChunk,modTemplate,modCategory};
+$c=$modx->getObject(modChunk::class,['name'=>'articleIntro'])?:$modx->newObject(modChunk::class);$c->fromArray(['name'=>'articleIntro','category'=>$modx->getObject(modCategory::class,['category'=>'Общие'])->get('id'),'snippet'=>file_get_contents($root.'cms/chunks/articleIntro.html')]);if(!$c->save())throw new RuntimeException('Chunk save failed');
+$t=$modx->getObject(modTemplate::class,25);$s=$t->get('content');if(!str_contains($s,'[[$articleIntro]]')){$s=preg_replace('~<div class="container coaches-intro blog-intro">.*?</div>~s','[[$articleIntro]]',$s,1);$s=preg_replace('~\s*<figure class="blog-article__photo">.*?</figure>~s','',$s,1);$t->set('content',$s);if(!$t->save())throw new RuntimeException('Template save failed');}
+$file=$root.'cms/template-registry.json';$r=json_decode(file_get_contents($file),true);$r['chunks']=array_values(array_unique(array_merge($r['chunks'],['articleIntro'])));file_put_contents($file,json_encode($r,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));$modx->cacheManager->refresh();echo "Article cover moved to right intro column.\n";

@@ -1,0 +1,18 @@
+<div class="hero-shell">
+	<section class="hero container" aria-labelledby="hero-title">
+		<div class="hero-art">
+			<img src="[[+hero_image:default=`/zubr/images/bison-hero.webp`:htmlent]]" width="1024" height="1536" alt="" fetchpriority="high">
+		</div>
+		<div class="hero-copy">
+			<h1 id="hero-title">[[*page_heading]]</h1>
+			<p class="hero-lead">[[*page_intro]]</p>
+			<div class="hero-buttons">
+				<a class="button button-primary" href="#first-visit"><span>[[+hero_button_label:htmlent]]</span><svg class="hero-button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a>
+				<a class="button hero-address" href="[[++zubr_contact_map_url:htmlent]]" target="_blank" rel="noopener noreferrer" aria-label="[[++zubr_contact_address:htmlent]] — открыть в Яндекс Картах"><svg class="hero-button-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><span>[[++zubr_contact_address:ZubrStreet:htmlent]]</span></a>
+			</div>
+		</div>
+		<div class="hero-facts" aria-label="О тренировках в клубе">
+			[[!getImageList? &tvname=`home_facts` &tpl=`homeFact` &limit=`0` &processTVs=`0` &totalVar=`homeFactsTotal`]]
+		</div>
+	</section>
+</div>

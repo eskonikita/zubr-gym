@@ -1,0 +1,42 @@
+<?php
+/** Portable production config. Credentials live outside the document root. */
+$projectRoot = dirname(__DIR__, 3) . '/';
+$production = require $projectRoot . 'cms/private/production.php';
+$database_type = 'mysql';
+$database_server = $production['db_host'];
+$database_user = $production['db_user'];
+$database_password = $production['db_password'];
+$dbase = $production['db_name'];
+$table_prefix = $production['table_prefix'];
+$database_connection_charset = 'utf8mb4';
+$database_dsn = 'mysql:host=' . $database_server . ';port=' . $production['db_port'] . ';dbname=' . $dbase . ';charset=utf8mb4';
+$config_options = ['session_cookie_secure' => true, 'session_cookie_samesite' => 'Lax'];
+$driver_options = [];
+$lastInstallTime = 1793187525;
+$site_id = 'modx-zubr-gym-production';
+$site_sessionname = 'ZUBRPRODSESSION';
+$https_port = '443';
+$uuid = '38e63d67-7e50-4347-9f09-c078cf5145bb';
+$public = $projectRoot . 'public/';
+foreach ([
+	'MODX_BASE_PATH' => $public,
+	'MODX_BASE_URL' => '/',
+	'MODX_CORE_PATH' => $public . 'core/',
+	'MODX_ASSETS_PATH' => $public . 'assets/',
+	'MODX_ASSETS_URL' => '/assets/',
+	'MODX_MANAGER_PATH' => $public . 'manager/',
+	'MODX_MANAGER_URL' => '/manager/',
+	'MODX_CONNECTORS_PATH' => $public . 'connectors/',
+	'MODX_CONNECTORS_URL' => '/connectors/',
+	'MODX_PROCESSORS_PATH' => $public . 'core/src/Revolution/Processors/',
+	'MODX_URL_SCHEME' => 'https://',
+	'MODX_HTTP_HOST' => $production['host'],
+	'MODX_SITE_URL' => 'https://' . $production['host'] . '/',
+	'MODX_LOG_LEVEL_FATAL' => 0,
+	'MODX_LOG_LEVEL_ERROR' => 1,
+	'MODX_LOG_LEVEL_WARN' => 2,
+	'MODX_LOG_LEVEL_INFO' => 3,
+	'MODX_LOG_LEVEL_DEBUG' => 4,
+] as $name => $value) {
+	if (!defined($name)) define($name, $value);
+}

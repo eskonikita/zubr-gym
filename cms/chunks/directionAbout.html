@@ -1,0 +1,28 @@
+<section class="section direction-story" aria-labelledby="direction-story-title">
+	<div class="container">
+		<div class="direction-story__intro">
+			<div>
+				<p class="direction-story__label">[[+about_label:htmlent]]</p>
+				<h2 id="direction-story-title">[[+about_heading]]</h2>
+			</div>
+			<div>
+				<p class="direction-story__lead">[[+about_intro:htmlent]]</p>
+				<a class="discipline-text-link" href="[[~10? &scheme=`abs`]]">[[+about_link_label:htmlent]] <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+			</div>
+		</div>
+		<dl class="direction-story__facts">
+			[[getImageList? &tvname=`direction_facts` &tpl=`directionFact` &limit=`0` &processTVs=`0` &totalVar=`directionFactsTotal`]]
+		</dl>
+		<figure class="direction-story__photo">
+			<img src="[[+about_image:htmlent]]" width="960" height="1280" alt="[[+about_image_alt:htmlent]]" loading="lazy">
+			<figcaption>[[+about_caption:htmlent]]</figcaption>
+		</figure>
+		<div class="direction-practice">
+			<h2>[[+practice_heading]]</h2>
+			<ol>
+				[[getImageList? &tvname=`direction_practice` &tpl=`directionPracticeStep` &limit=`0` &processTVs=`0` &totalVar=`directionPracticeTotal`]]
+			</ol>
+			<p class="direction-practice__note">[[+practice_note]]</p>
+		</div>
+	</div>
+</section>

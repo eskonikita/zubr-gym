@@ -1,0 +1,38 @@
+<?php
+/** Child club cards, parent Instagram card and location copy. */
+if(PHP_SAPI!=='cli'||!in_array('--apply',$argv,true))exit("Usage: php tools/modx/configure-hall-list.php --apply\n");
+$root=dirname(__DIR__,2).'/';define('MODX_API_MODE',true);require $root.'public/index.php';$modx->initialize('mgr');
+use MODX\Revolution\{modResource,modTemplate,modTemplateVar,modTemplateVarTemplate,modTemplateVarResource,modCategory,modChunk};
+$template=$modx->getObject(modTemplate::class,4);$html=$template->get('content');$cards=[];$seed=[];
+function text($xp,$query,$node=null){return trim($xp->query($query,$node)->item(0)->textContent);}
+function category($modx,$name){$c=$modx->getObject(modCategory::class,['category'=>$name])?:$modx->newObject(modCategory::class);$c->set('category',$name);if(!$c->save())throw new RuntimeException('Category save failed');return (int)$c->get('id');}
+function iconFile($root,$svg,$name){$dir=$root.'public/zubr/images/hall';if(!is_dir($dir))mkdir($dir,0777,true);$doc=new DOMDocument('1.0','UTF-8');$doc->formatOutput=true;$el=$doc->createElementNS('http://www.w3.org/2000/svg','svg');$el->setAttribute('viewBox','0 0 160 180');$doc->appendChild($el);foreach($svg->childNodes as $child)$el->appendChild($doc->importNode($child,true));if(file_put_contents($dir.'/'.$name.'.svg',$doc->saveXML())===false)throw new RuntimeException('Icon write failed');return 'zubr/images/hall/'.$name.'.svg';}
+if(!str_contains($html,'[[$hallLinks]]')){
+	$doc=new DOMDocument();libxml_use_internal_errors(true);$doc->loadHTML('<?xml encoding="UTF-8">'.$html);libxml_clear_errors();$xp=new DOMXPath($doc);
+	foreach($xp->query('//a[contains(concat(" ",normalize-space(@class)," ")," hall-link ")]') as $card){
+		$instagram=str_contains($card->getAttribute('class'),'hall-link--instagram');$row=['MIGX_id'=>1,'title'=>text($xp,'.//h2',$card),'description'=>text($xp,'./div/span',$card)];
+		$img=$xp->query('./img',$card)->item(0);$row['image']=$img?ltrim($img->getAttribute('src'),'/'):iconFile($root,$xp->query('./svg',$card)->item(0),$instagram?'instagram':'gallery');
+		if($instagram){$row['enabled']='1';$seed['hall_instagram']=[$row];continue;}
+		$uri=ltrim(parse_url($card->getAttribute('href'),PHP_URL_PATH),'/');$r=$modx->getObject(modResource::class,['uri'=>$uri,'parent'=>3,'context_key'=>'web']);if(!$r)throw new RuntimeException('Unknown club child');
+		$row['layout']=str_contains($card->getAttribute('class'),'--trainers')?'trainers':(str_contains($card->getAttribute('class'),'--first-visit')?'first-visit':'icon');$cards[$r->get('id')]=[$row];
+	}
+	if(count($cards)!==3||empty($seed['hall_instagram']))throw new RuntimeException('Unexpected original cards');
+	$heading=$xp->query('//*[@id="location-title"]')->item(0);$inner='';foreach($heading->childNodes as $node)$inner.=$doc->saveHTML($node);$seed['hall_location']=[['MIGX_id'=>1,'heading'=>$inner,'description'=>text($xp,'//div[@class="hall-location__inner"]/div/p'),'route_label'=>text($xp,'//a[contains(concat(" ",normalize-space(@class)," ")," hall-route ")]')]];
+}
+$source=$modx->getObject(\MODX\Revolution\Sources\modMediaSource::class,['name'=>'Site images']);if(!$source)throw new RuntimeException('Image source missing');
+$image=['field'=>'image','caption'=>'Картинка / иконка','inputTVtype'=>'image','sourceFrom'=>'config','sources'=>['web'=>(int)$source->get('id')]];
+$title=['field'=>'title','caption'=>'Название карточки','inputTVtype'=>'text'];$description=['field'=>'description','caption'=>'Подпись','inputTVtype'=>'textarea'];
+$defs=[
+	'hall_card'=>['Карточка в разделе «Зал»','Карточка раздела',[$title,$description,$image,['field'=>'layout','caption'=>'Расположение картинки','inputTVtype'=>'listbox','inputOptionValues'=>'Фото тренера==trainers||Иллюстрация справа==first-visit||Иконка справа==icon','default'=>'icon']],json_encode([['MIGX_id'=>1,'title'=>'','description'=>'','image'=>'zubr/images/hall/gallery.svg','layout'=>'icon']])],
+	'hall_instagram'=>['Карточка Instagram','Зал — раздел',[['field'=>'enabled','caption'=>'Показывать карточку','inputTVtype'=>'checkbox','inputOptionValues'=>'Да==1','default'=>'1'],$title,$description+['description'=>'Имя аккаунта можно подставить тегом [[++zubr_contact_instagram]].'],$image],''],
+	'hall_location'=>['Блок с адресом','Зал — раздел',[['field'=>'heading','caption'=>'Заголовок','inputTVtype'=>'text','description'=>'Допускаются span и теги ClientConfig.'],['field'=>'description','caption'=>'Описание','inputTVtype'=>'textarea'],['field'=>'route_label','caption'=>'Текст кнопки маршрута','inputTVtype'=>'text']],''],
+];
+$file=$root.'cms/template-registry.json';$reg=json_decode(file_get_contents($file),true);
+foreach($defs as $name=>[$caption,$cat,$fields,$default]){
+	$tv=$modx->getObject(modTemplateVar::class,['name'=>$name])?:$modx->newObject(modTemplateVar::class);$columns=[];foreach($fields as $f)$columns[]=['header'=>$f['caption'],'dataIndex'=>$f['field'],'width'=>240,'renderer'=>'Ext.util.Format.htmlEncode'];$tv->fromArray(['name'=>$name,'caption'=>$caption,'description'=>'Одна запись. '.($name==='hall_card'?'Пустое название/подпись используют заголовок/описание ресурса.':'Настройки только страницы «Зал». Контакты из ClientConfig.'),'category'=>category($modx,$cat),'type'=>'migx','display'=>'default','default_text'=>$default,'input_properties'=>['formtabs'=>json_encode([['caption'=>$caption,'fields'=>$fields]],JSON_UNESCAPED_UNICODE),'columns'=>json_encode($columns,JSON_UNESCAPED_UNICODE),'btntext'=>'Добавить настройки']]);if(!$tv->save())throw new RuntimeException('TV save failed');$id=(int)$tv->get('id');$reg['fields'][$name]=$id;
+	$templateIds=$name==='hall_card'?[10,11,12]:[4];foreach($templateIds as $templateId){$criteria=['tmplvarid'=>$id,'templateid'=>$templateId];if(!$modx->getObject(modTemplateVarTemplate::class,$criteria)){$link=$modx->newObject(modTemplateVarTemplate::class);$link->fromArray($criteria,'',true,true);if(!$link->save())throw new RuntimeException('Assignment failed');}}
+	$values=$name==='hall_card'?$cards:[3=>$seed[$name]??null];foreach($values as $resourceId=>$value){if($value===null)continue;if(!$modx->getObject(modTemplateVarResource::class,['tmplvarid'=>$id,'contentid'=>$resourceId])){$r=$modx->getObject(modResource::class,$resourceId);if(!$r->setTVValue($name,json_encode($value,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES)))throw new RuntimeException('Seed failed');}}
+}
+$names=['hallLinks','hallCardResource','hallCard','hallInstagram'];foreach($names as $name){$c=$modx->getObject(modChunk::class,['name'=>$name])?:$modx->newObject(modChunk::class);$c->fromArray(['name'=>$name,'category'=>category($modx,'Общие'),'snippet'=>file_get_contents($root.'cms/chunks/'.$name.'.html')]);if(!$c->save())throw new RuntimeException('Chunk save failed');}
+if(!str_contains($html,'[[$hallLinks]]')){foreach(array_keys($cards) as $index=>$id){$r=$modx->getObject(modResource::class,$id);$r->set('menuindex',$index);$r->save();}$html=preg_replace('~<section class="section hall-links".*?</section>~s','[[$hallLinks]]',$html,1);$html=preg_replace('~<section class="section hall-location".*?</section>~s','[[!getImageList? &tvname=`hall_location` &tpl=`infoLocation` &limit=`1` &processTVs=`0` &totalVar=`hallLocationTotal`]]',$html,1);$template->set('content',$html);if(!$template->save())throw new RuntimeException('Template save failed');}
+$reg['chunks']=array_values(array_unique(array_merge($reg['chunks'],$names)));file_put_contents($file,json_encode($reg,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));$modx->cacheManager->refresh();echo "Hall child cards, Instagram and location editors applied.\n";

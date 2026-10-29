@@ -1,0 +1,11 @@
+<section class="section discipline-about" aria-labelledby="about-title">
+	<div class="container discipline-about__layout">
+		<img class="discipline-about__photo" src="[[+about_image:htmlent]]" width="960" height="1280" alt="[[+about_image_alt:htmlent]]" loading="lazy">
+		<div class="discipline-about__copy">
+			<h2 id="about-title">[[+about_heading]]</h2>
+			<p class="discipline-about__lead">[[+about_intro:htmlent]]</p>
+			[[!getImageList? &tvname=`audience_about_items` &tpl=`audienceAboutItem` &limit=`0` &processTVs=`0` &totalVar=`audienceAboutTotal`]]
+			<a class="discipline-text-link" href="[[~11? &scheme=`abs`]]">[[+about_link_label:htmlent]] <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+		</div>
+	</div>
+</section>

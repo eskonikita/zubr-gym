@@ -1,0 +1,20 @@
+<a class="blog-card" href="[[~[[+id]]? &scheme=`abs`]]">
+	<div class="blog-card__image">
+		<img src="[[+article_image:htmlent]]" width="960" height="1280" alt="[[+article_image_alt:htmlent]]" loading="lazy">
+	</div>
+	<div class="blog-card__copy">
+		<div class="article-meta">
+			<div class="article-meta__badge article-category-badge" aria-label="Категория: [[+article_category:htmlent]]">
+				<svg aria-hidden="true"><use href="#category"/></svg>
+				<span>[[+article_category:htmlent]]</span>
+			</div>
+			<div class="article-meta__badge article-date-badge" aria-label="Опубликовано: [[+publishedon:default=`[[+createdon]]`:date=`%d.%m.%Y`]]">
+				<svg aria-hidden="true"><use href="#calendar"/></svg>
+				<time datetime="[[+publishedon:default=`[[+createdon]]`:date=`%Y-%m-%d`]]">[[+publishedon:default=`[[+createdon]]`:date=`%d.%m.%Y`]]</time>
+			</div>
+		</div>
+		<h2>[[+page_heading:default=`[[+pagetitle]]`:stripTags:htmlent]]</h2>
+		<p>[[+page_intro:stripTags:htmlent]]</p>
+		<span class="blog-card__action">Читать материал <svg aria-hidden="true"><use href="#arrow"/></svg></span>
+	</div>
+</a>

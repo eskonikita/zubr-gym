@@ -1,0 +1,112 @@
+<?php
+
+/*
+ * This file is part of MODX Revolution.
+ *
+ * Copyright (c) MODX, LLC. All Rights Reserved.
+ *
+ * For complete copyright and license information, see the COPYRIGHT and LICENSE
+ * files found in the top-level directory of this distribution.
+ */
+
+namespace MODX\Revolution\Processors\Security\Forms\Set;
+
+use MODX\Revolution\modFormCustomizationSet;
+use MODX\Revolution\Processors\Model\GetListProcessor;
+use MODX\Revolution\modTemplate;
+use xPDO\Om\xPDOObject;
+use xPDO\Om\xPDOQuery;
+
+/**
+ * Gets a list of Form Customization sets.
+ * @param integer $start (optional) The record to start at. Defaults to 0.
+ * @param integer $limit (optional) The number of records to limit to. Defaults to 10.
+ * @param string $sort (optional) The column to sort by.
+ * @param string $dir (optional) The direction of the sort. Default action.
+ * @package MODX\Revolution\Processors\Security\Forms\Set
+ */
+class GetList extends GetListProcessor
+{
+    public $classKey = modFormCustomizationSet::class;
+    public $languageTopics = ['formcustomization'];
+    public $permission = 'customize_forms';
+    public $defaultSortField = 'action';
+
+    public $canCreate = false;
+    public $canEdit = false;
+    public $canRemove = false;
+
+    /**
+     * @return bool
+     */
+    public function initialize()
+    {
+        $this->setDefaultProperties([
+            'profile' => 0,
+            'query' => ''
+        ]);
+        $canSave = $this->modx->hasPermission('save');
+        $this->canCreate = $canSave;
+        $this->canEdit = $canSave;
+        $this->canRemove = $this->modx->hasPermission('remove');
+        return parent::initialize();
+    }
+
+    /**
+     * @param xPDOQuery $c
+     * @return xPDOQuery
+     */
+    public function prepareQueryBeforeCount(xPDOQuery $c)
+    {
+        $c->leftJoin(modTemplate::class, 'Template');
+        $profile = $this->getProperty('profile');
+        if (!empty($profile)) {
+            $c->where(['profile' => $profile]);
+        }
+        $query = $this->getProperty('query');
+        if (!empty($query)) {
+            $c->where([
+                'modFormCustomizationSet.description:LIKE' => '%' . $query . '%',
+                'OR:Template.templatename:LIKE' => '%' . $query . '%',
+                'OR:modFormCustomizationSet.constraint_field:LIKE' => '%' . $query . '%',
+            ], null, 2);
+        }
+        return $c;
+    }
+
+    /**
+     * @param xPDOQuery $c
+     * @return xPDOQuery
+     */
+    public function prepareQueryAfterCount(xPDOQuery $c)
+    {
+        $c->select($this->modx->getSelectColumns(modFormCustomizationSet::class, 'modFormCustomizationSet'));
+        $c->select(['Template.templatename']);
+        return $c;
+    }
+
+    /**
+     * @param xPDOObject $object
+     * @return array
+     */
+    public function prepareRow(xPDOObject $object)
+    {
+        $fcSetArray = $object->toArray();
+
+        $constraint_field = $object->get('constraint_field');
+        $constraint = $object->get('constraint');
+        if (!empty($constraint_field)) {
+            if ($constraint === '') {
+                $constraint = "'{$constraint}'";
+            }
+            $fcSetArray['constraint_data'] = $object->get('constraint_class') . '.' . $constraint_field . ' = ' . $constraint;
+        }
+        $fcSetArray['permissions'] = [
+            'create' => $this->canCreate,
+            'update' => $this->canEdit,
+            'delete' => $this->canRemove
+        ];
+
+        return $fcSetArray;
+    }
+}

@@ -1,0 +1,24 @@
+[[$head]]
+[[$header]]
+		<main id="main">
+			[[$articleIntro]]
+			<article class="container blog-article">
+				<div class="blog-article__layout">
+					<aside class="blog-toc">
+						<h2>В материале</h2>
+						<ol>
+							[[ContentContents]]
+						</ol>
+					</aside>
+					<div class="blog-article__text">
+						<figure class="blog-article__photo">
+							<img src="[[*article_image:htmlent]]" width="960" height="1280" alt="[[*article_image_alt:htmlent]]" fetchpriority="high">
+						</figure>
+						[[*content]]
+						<a class="blog-back" href="[[~26? &scheme=`abs`]]">Все материалы блога <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+					</div>
+				</div>
+			</article>
+			[[$relatedArticles]][[$trainingCta]]
+		</main>
+		[[$footer]]

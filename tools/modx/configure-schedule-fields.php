@@ -1,0 +1,39 @@
+<?php
+/** Schedule editing via native MIGX, resource relations and native list rendering. */
+if(PHP_SAPI!=='cli'||!in_array('--apply',$argv,true))exit("Usage: php tools/modx/configure-schedule-fields.php --apply\n");
+$root=dirname(__DIR__,2).'/';define('MODX_API_MODE',true);require $root.'public/index.php';$modx->initialize('mgr');
+use MODX\Revolution\{modResource,modTemplate,modTemplateVar,modTemplateVarTemplate,modTemplateVarResource,modChunk,modCategory};
+$t=$modx->getObject(modTemplate::class,24);$html=$t->get('content');
+$groups=[['MIGX_id'=>1,'title'=>'Мужская','age'=>'18+'],['MIGX_id'=>2,'title'=>'Дети','age'=>'5–10 лет'],['MIGX_id'=>3,'title'=>'Подростки','age'=>'11–17 лет']];
+$lessons=[];
+if(!str_contains($html,'[[$scheduleSection]]')){
+ $doc=new DOMDocument();libxml_use_internal_errors(true);$doc->loadHTML('<?xml encoding="UTF-8">'.$html);libxml_clear_errors();$xpath=new DOMXPath($doc);$days=['Понедельник'=>1,'Вторник'=>2,'Среда'=>3,'Четверг'=>4,'Пятница'=>5,'Суббота'=>6,'Воскресенье'=>7];$gids=['men'=>1,'kids'=>2,'teens'=>3];
+ foreach($xpath->query('//tr[@data-schedule-row]') as $row){$td=$row->getElementsByTagName('td');$times=explode('–',trim($td->item(1)->textContent));$trainer=$modx->getObject(modResource::class,['parent'=>10,'alias'=>$row->getAttribute('data-trainer')]);$direction=$modx->getObject(modResource::class,['parent'=>5,'alias'=>$row->getAttribute('data-direction')]);if(!$trainer||!$direction)throw new RuntimeException('Unresolved original resource relation');$lessons[]=['MIGX_id'=>count($lessons)+1,'day'=>$days[trim($td->item(0)->textContent)],'start'=>$times[0],'end'=>$times[1],'direction'=>(int)$direction->get('id'),'group'=>$gids[$row->getAttribute('data-group')],'trainer'=>(int)$trainer->get('id'),'active'=>'1'];}
+ if(!$lessons)throw new RuntimeException('No original lessons found');
+}
+$category=$modx->getObject(modCategory::class,['category'=>'Расписание']);if(!$category){$category=$modx->newObject(modCategory::class);$category->set('category','Расписание');if(!$category->save())throw new RuntimeException('Category save failed');}
+$listConfig=json_encode(['allowBlank'=>false,'forceSelection'=>true]);
+$fields=[
+ ['field'=>'day','caption'=>'День недели','inputTVtype'=>'listbox','inputOptionValues'=>'Понедельник==1||Вторник==2||Среда==3||Четверг==4||Пятница==5||Суббота==6||Воскресенье==7','configs'=>$listConfig],
+ ['field'=>'start','caption'=>'Начало — ЧЧ:ММ','inputTVtype'=>'text','configs'=>json_encode(['allowBlank'=>false,'regex'=>'^([01][0-9]|2[0-3]):[0-5][0-9]$','regexText'=>'Укажите время в формате ЧЧ:ММ'])],
+ ['field'=>'end','caption'=>'Окончание — ЧЧ:ММ','inputTVtype'=>'text','configs'=>json_encode(['allowBlank'=>false,'regex'=>'^([01][0-9]|2[0-3]):[0-5][0-9]$','regexText'=>'Укажите время в формате ЧЧ:ММ'])],
+ ['field'=>'direction','caption'=>'Направление','inputTVtype'=>'listbox','inputOptionValues'=>"@SELECT pagetitle,id FROM [[+PREFIX]]site_content WHERE parent=5 AND template=14 AND published=1 AND deleted=0 AND context_key='web' ORDER BY menuindex,id",'configs'=>$listConfig],
+ ['field'=>'group','caption'=>'Группа','inputTVtype'=>'listbox','inputOptionValues'=>'@CHUNK scheduleGroupOptions','configs'=>$listConfig,'description'=>'Группы берутся из таблицы выше. После добавления группы сохраните страницу.'],
+ ['field'=>'trainer','caption'=>'Тренер','inputTVtype'=>'listbox','inputOptionValues'=>"@SELECT pagetitle,id FROM [[+PREFIX]]site_content WHERE parent=10 AND template=13 AND published=1 AND deleted=0 AND context_key='web' ORDER BY menuindex,id",'configs'=>$listConfig],
+ ['field'=>'active','caption'=>'Показывать занятие','inputTVtype'=>'checkbox','inputOptionValues'=>'Да==1','default'=>'1'],
+];
+$columns=[];foreach(['day'=>'День','start'=>'Начало','end'=>'Конец','direction'=>'Направление','group'=>'Группа','trainer'=>'Тренер','active'=>'Вкл.'] as $key=>$title){$col=['header'=>$title,'dataIndex'=>$key,'width'=>in_array($key,['direction','trainer','group'])?180:95];if($key==='day')$render='[[$scheduleDay? &day=`[[+day]]`]]';elseif(in_array($key,['direction','trainer']))$render='[[pdoField? &id=`[[+'.$key.']]` &field=`pagetitle`]]';elseif($key==='group')$render='[[getImageList? &tvname=`schedule_groups` &docid=`33` &where=`{"MIGX_id":"[[+group]]"}` &tpl=`scheduleGroupLabel` &limit=`1` &processTVs=`0`]]';else $render='';if($render){$col['dataIndex']=$key.'_label';$col+=['renderer'=>'this.renderChunk','renderchunktpl'=>$render];}$columns[]=$col;}
+$definitions=[
+ 'schedule_groups'=>['Группы','Группы для расписания. После изменения сохраните страницу, затем выбирайте группы в занятиях.',[['field'=>'title','caption'=>'Название','inputTVtype'=>'text','configs'=>json_encode(['allowBlank'=>false])],['field'=>'age','caption'=>'Возраст или примечание','inputTVtype'=>'text']], [['header'=>'Группа','dataIndex'=>'title','width'=>220],['header'=>'Возраст / примечание','dataIndex'=>'age','width'=>300]],$groups,'Добавить группу'],
+ 'schedule_lessons'=>['Занятия','Одна строка — одно занятие. На сайте сортировка по дню и времени. Тренеры и направления связаны с ресурсами по ID.',$fields,$columns,$lessons,'Добавить занятие'],
+];
+$file=$root.'cms/template-registry.json';$reg=json_decode(file_get_contents($file),true);
+foreach($definitions as $name=>[$caption,$description,$formFields,$grid,$seed]){
+ $tv=$modx->getObject(modTemplateVar::class,['name'=>$name])?:$modx->newObject(modTemplateVar::class);$tv->fromArray(['name'=>$name,'caption'=>$caption,'description'=>$description,'type'=>'migx','category'=>$category->get('id'),'default_text'=>'','display'=>'default','rank'=>$name==='schedule_groups'?0:1,'input_properties'=>['formtabs'=>json_encode([['caption'=>$name==='schedule_groups'?'Группа':'Занятие','fields'=>$formFields]],JSON_UNESCAPED_UNICODE),'columns'=>json_encode($grid,JSON_UNESCAPED_UNICODE),'btntext'=>$definitions[$name][5]]]);if(!$tv->save())throw new RuntimeException('TV save failed');$id=(int)$tv->get('id');$reg['fields'][$name]=$id;
+ $criteria=['tmplvarid'=>$id,'templateid'=>24];if(!$modx->getObject(modTemplateVarTemplate::class,$criteria)){$link=$modx->newObject(modTemplateVarTemplate::class);$link->fromArray($criteria,'',true,true);if(!$link->save())throw new RuntimeException('TV assignment failed');}
+ foreach($modx->getCollection(modResource::class,['template'=>24,'deleted'=>0]) as $r)if(!$modx->getObject(modTemplateVarResource::class,['tmplvarid'=>$id,'contentid'=>$r->get('id')])){if(!$seed)throw new RuntimeException('No seed available');if(!$r->setTVValue($name,json_encode($seed,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES)))throw new RuntimeException('Seed failed');}
+}
+$names=['scheduleSection','scheduleResourceFilter','scheduleGroupFilter','scheduleGroupOptions','scheduleGroupOption','scheduleGroupLabel','scheduleResourceLink','scheduleResourceName','scheduleResourceFallback','scheduleDay','scheduleRow'];$common=$modx->getObject(modCategory::class,['category'=>'Общие'])->get('id');
+foreach($names as $name){$c=$modx->getObject(modChunk::class,['name'=>$name])?:$modx->newObject(modChunk::class);$code=file_get_contents($root.'cms/chunks/'.$name.'.html');if($name==='scheduleGroupOption')$code=trim($code);$c->fromArray(['name'=>$name,'category'=>$common,'snippet'=>$code]);if(!$c->save())throw new RuntimeException('Chunk save failed');}
+if(!str_contains($html,'[[$scheduleSection]]')){$html=preg_replace('~<section class="section schedule-section".*?</section>~s','[[$scheduleSection]]',$html,-1,$count);if($count!==1)throw new RuntimeException('Unexpected schedule section');$t->set('content',$html);if(!$t->save())throw new RuntimeException('Template save failed');}
+$reg['chunks']=array_values(array_unique(array_merge($reg['chunks'],$names)));file_put_contents($file,json_encode($reg,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));$modx->cacheManager->refresh();echo "Schedule MIGX data and dynamic filters configured.\n";
